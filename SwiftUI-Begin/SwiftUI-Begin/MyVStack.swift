@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct MyVStackView: View {
+    
+    @Binding
+    var isActivated: Bool
+    
+    //생성자
+    init(isActivated: Binding<Bool> =
+        .constant(false)) {
+        _isActivated = isActivated
+    }
+    
     var body: some View {
         VStack {
             Text("1!")
@@ -20,7 +30,8 @@ struct MyVStackView: View {
                 .fontWeight(.bold)
                 .font(.system(size: 60))
         } //VStack
-        .background(Color.red)
+        .background(isActivated ? .green : .red)
+        .padding(isActivated ? 10 : 0)
     }
 }
 

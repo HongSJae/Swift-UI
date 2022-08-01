@@ -17,17 +17,14 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-            
             VStack {
-                
                 HStack {
-                    
-                    MyVStackView()
-                    MyVStackView()
-                    MyVStackView()
+                    MyVStackView(isActivated: $isActivated)
+                    MyVStackView(isActivated: $isActivated)
+                    MyVStackView(isActivated: $isActivated)
                     
                 } //HStack
-        //        .padding(10)
+                //.padding(10)
                 .padding(isActivated ? 50 : 10)
                 .background(isActivated ? Color.yellow : Color.black)
                 // 탭 재스쳐 추가
@@ -42,7 +39,7 @@ struct ContentView: View {
                 } //HStack
                 
                 //네비게이션 버튼 (링크)
-                NavigationLink(destination: MyTextView()) {
+                NavigationLink(destination: MyTextView(isActivated: $isActivated)) {
                     Text("네비게이션")
                         .fontWeight(.bold)
                         .padding()
