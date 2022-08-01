@@ -12,6 +12,7 @@
 		9014FB1728981EEA00A23B66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9014FB1628981EEA00A23B66 /* Assets.xcassets */; };
 		9014FB1A28981EEA00A23B66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9014FB1928981EEA00A23B66 /* Preview Assets.xcassets */; };
 		9014FB212898229200A23B66 /* MyVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014FB202898229200A23B66 /* MyVStack.swift */; };
+		9014FB2328982D8600A23B66 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014FB2228982D8600A23B66 /* MyTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		9014FB1628981EEA00A23B66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9014FB1928981EEA00A23B66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9014FB202898229200A23B66 /* MyVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVStack.swift; sourceTree = "<group>"; };
+		9014FB2228982D8600A23B66 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				9014FB1228981EE800A23B66 /* SwiftUI_BeginApp.swift */,
 				9014FB202898229200A23B66 /* MyVStack.swift */,
 				9014FB1428981EE800A23B66 /* ContentView.swift */,
+				9014FB2228982D8600A23B66 /* MyTextView.swift */,
 				9014FB1628981EEA00A23B66 /* Assets.xcassets */,
 				9014FB1828981EEA00A23B66 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9014FB1528981EE800A23B66 /* ContentView.swift in Sources */,
+				9014FB2328982D8600A23B66 /* MyTextView.swift in Sources */,
 				9014FB1328981EE800A23B66 /* SwiftUI_BeginApp.swift in Sources */,
 				9014FB212898229200A23B66 /* MyVStack.swift in Sources */,
 			);
