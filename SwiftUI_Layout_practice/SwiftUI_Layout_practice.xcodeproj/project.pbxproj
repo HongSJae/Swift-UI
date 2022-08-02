@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9059D96028991C98009228BE /* MyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9059D95F28991C98009228BE /* MyList.swift */; };
 		90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ECB289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift */; };
 		90C43ECE289909DC0049F1D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ECD289909DC0049F1D8 /* ContentView.swift */; };
 		90C43ED0289909DD0049F1D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C43ECF289909DD0049F1D8 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9059D95F28991C98009228BE /* MyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyList.swift; sourceTree = "<group>"; };
 		90C43EC8289909DC0049F1D8 /* SwiftUI_Layout_practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Layout_practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C43ECB289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Layout_practiceApp.swift; sourceTree = "<group>"; };
 		90C43ECD289909DC0049F1D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				90C43ED9289909F80049F1D8 /* MyProjectCard.swift */,
 				90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */,
 				90C43EDF289916A20049F1D8 /* MyCard.swift */,
+				9059D95F28991C98009228BE /* MyList.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				90C43EDC28990EF50049F1D8 /* MyBasicCard.swift in Sources */,
 				90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */,
 				90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */,
+				9059D96028991C98009228BE /* MyList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
