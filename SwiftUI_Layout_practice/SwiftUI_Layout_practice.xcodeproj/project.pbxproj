@@ -15,6 +15,9 @@
 		90C43EDA289909F80049F1D8 /* MyProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ED9289909F80049F1D8 /* MyProjectCard.swift */; };
 		90C43EDC28990EF50049F1D8 /* MyBasicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */; };
 		90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43EDF289916A20049F1D8 /* MyCard.swift */; };
+		90D32F01289927F800406C50 /* MyNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D32F00289927F800406C50 /* MyNavigationView.swift */; };
+		90D32F0428997F8000406C50 /* MyCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D32F0328997F8000406C50 /* MyCircleImage.swift */; };
+		90D32F062899811D00406C50 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D32F052899811D00406C50 /* MyProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,10 @@
 		90C43ED9289909F80049F1D8 /* MyProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectCard.swift; sourceTree = "<group>"; };
 		90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBasicCard.swift; sourceTree = "<group>"; };
 		90C43EDF289916A20049F1D8 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
+		90D32F00289927F800406C50 /* MyNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationView.swift; sourceTree = "<group>"; };
+		90D32F022899567400406C50 /* SwiftUI-Layout-practice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-Layout-practice-Info.plist"; sourceTree = SOURCE_ROOT; };
+		90D32F0328997F8000406C50 /* MyCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircleImage.swift; sourceTree = "<group>"; };
+		90D32F052899811D00406C50 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 		90C43ECA289909DC0049F1D8 /* SwiftUI_Layout_practice */ = {
 			isa = PBXGroup;
 			children = (
+				90D32F022899567400406C50 /* SwiftUI-Layout-practice-Info.plist */,
 				90C43ECB289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift */,
 				90C43ECD289909DC0049F1D8 /* ContentView.swift */,
 				90C43ECF289909DD0049F1D8 /* Assets.xcassets */,
@@ -75,6 +83,9 @@
 				90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */,
 				90C43EDF289916A20049F1D8 /* MyCard.swift */,
 				9059D95F28991C98009228BE /* MyList.swift */,
+				90D32F00289927F800406C50 /* MyNavigationView.swift */,
+				90D32F052899811D00406C50 /* MyProfileView.swift */,
+				90D32F0328997F8000406C50 /* MyCircleImage.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -150,11 +161,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C43EDA289909F80049F1D8 /* MyProjectCard.swift in Sources */,
+				90D32F062899811D00406C50 /* MyProfileView.swift in Sources */,
+				90D32F0428997F8000406C50 /* MyCircleImage.swift in Sources */,
 				90C43ECE289909DC0049F1D8 /* ContentView.swift in Sources */,
 				90C43EDC28990EF50049F1D8 /* MyBasicCard.swift in Sources */,
 				90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */,
 				90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */,
 				9059D96028991C98009228BE /* MyList.swift in Sources */,
+				90D32F01289927F800406C50 /* MyNavigationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +299,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Layout_practice/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-Layout-practice-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +328,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Layout_practice/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-Layout-practice-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

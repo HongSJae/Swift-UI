@@ -24,8 +24,11 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }
                         Spacer()
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.largeTitle)
+                        NavigationLink(destination: MyProfileView()) {
+                            Image(systemName: "person.crop.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.black)
+                        }
                     }
                     .padding(20)
                     Text("Reswo._.의 할 일목록")
@@ -73,7 +76,7 @@ struct ContentView: View {
                     .padding(.trailing, 10)
                     .shadow(radius: 20)
             }
-            .navigationTitle("메인")
+            .navigationTitle("뒤로가기")
             .navigationBarHidden(self.isNavigationbarHidden)
             .onAppear {
                 self.isNavigationbarHidden = true
