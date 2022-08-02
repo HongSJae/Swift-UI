@@ -9,13 +9,6 @@ import SwiftUI
 
 struct MyList: View {
     
-    @Binding
-    var isNavigationBarHidden: Bool
-    
-    init(isNavigationBarHidden: Binding<Bool> = .constant(false)) {
-        _isNavigationBarHidden = isNavigationBarHidden
-    }
-    
     var body: some View {
         
         List {
@@ -53,10 +46,6 @@ struct MyList: View {
         }
         .listStyle(.grouped)
         .navigationTitle("내 목록")
-//        .navigationBarHidden(self.isNavigationbarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = false
-        }
     }
 }
 

@@ -9,33 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State
-    var isNavigationbarHidden = false
-    
     var body: some View {
         
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack {
-                        NavigationLink(destination: MyList(isNavigationBarHidden: self.$isNavigationbarHidden)) {
-                            Image(systemName: "line.horizontal.3")
-                                .font(.largeTitle)
-                                .foregroundColor(.black)
-                        }
-                        Spacer()
-                        NavigationLink(destination: MyProfileView()) {
-                            Image(systemName: "person.crop.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    .padding(20)
-                    Text("Reswo._.의 할 일목록")
-                        .font(.system(size: 40))
-                        .fontWeight(.black)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 20)
                     ScrollView {
                         VStack {
                             MyProjectCard()
@@ -76,11 +54,19 @@ struct ContentView: View {
                     .padding(.trailing, 10)
                     .shadow(radius: 20)
             }
-            .navigationTitle("뒤로가기")
-            .navigationBarHidden(self.isNavigationbarHidden)
-            .onAppear {
-                self.isNavigationbarHidden = true
-            }
+            .navigationBarTitle("Reswo._.의 할일목록", displayMode: .automatic)
+            .navigationBarItems(
+                
+                leading: NavigationLink(destination: MyList()) {
+                Image(systemName: "line.horizontal.3")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)},
+                                
+                trailing: NavigationLink(destination: MyProfileView()) {
+                    Image(systemName: "person.crop.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+            })
         }
     }
 }
