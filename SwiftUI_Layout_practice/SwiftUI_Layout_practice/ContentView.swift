@@ -29,12 +29,26 @@ struct ContentView: View {
                     VStack {
                         MyProjectCard()
                         MyBasicCard()
-                        MyBasicCard()
-                        MyBasicCard()
-                        MyBasicCard()
-                        MyBasicCard()
-                        MyBasicCard()
-                        MyBasicCard()
+                        MyCard(icon: "tray.fill",
+                               title: "방 청소",
+                               Start: "10 AM",
+                               End: "11 AM",
+                               bgColor: .gray)
+                        MyCard(icon: "tv.fill",
+                               title: "유튜브 보기",
+                               Start: "3 PM",
+                               End: "5 PM",
+                               bgColor: .red)
+                        MyCard(icon: "gamecontroller.fill",
+                               title: "롤 한 판하기",
+                               Start: "12 AM",
+                               End: "2 AM",
+                               bgColor: .orange)
+                        MyCard(icon: "phone.fill",
+                               title: "전화 하기",
+                               Start: "미정",
+                               End: "미정",
+                               bgColor: .blue)
                     }
                     .padding()
                 } //ScrollView

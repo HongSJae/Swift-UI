@@ -13,6 +13,7 @@
 		90C43ED3289909DD0049F1D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C43ED2289909DD0049F1D8 /* Preview Assets.xcassets */; };
 		90C43EDA289909F80049F1D8 /* MyProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ED9289909F80049F1D8 /* MyProjectCard.swift */; };
 		90C43EDC28990EF50049F1D8 /* MyBasicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */; };
+		90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43EDF289916A20049F1D8 /* MyCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		90C43ED2289909DD0049F1D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		90C43ED9289909F80049F1D8 /* MyProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectCard.swift; sourceTree = "<group>"; };
 		90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBasicCard.swift; sourceTree = "<group>"; };
+		90C43EDF289916A20049F1D8 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				90C43ED2289909DD0049F1D8 /* Preview Assets.xcassets */,
 				90C43ED9289909F80049F1D8 /* MyProjectCard.swift */,
 				90C43EDB28990EF50049F1D8 /* MyBasicCard.swift */,
+				90C43EDF289916A20049F1D8 /* MyCard.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				90C43EDA289909F80049F1D8 /* MyProjectCard.swift in Sources */,
 				90C43ECE289909DC0049F1D8 /* ContentView.swift in Sources */,
 				90C43EDC28990EF50049F1D8 /* MyBasicCard.swift in Sources */,
+				90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */,
 				90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
