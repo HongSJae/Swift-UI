@@ -10,6 +10,8 @@
 		9059D96028991C98009228BE /* MyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9059D95F28991C98009228BE /* MyList.swift */; };
 		908D8054289988CF00A9D27C /* MyGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D8053289988CF00A9D27C /* MyGeometryReader.swift */; };
 		908D805628998F7100A9D27C /* MyGeometryReaderVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D805528998F7100A9D27C /* MyGeometryReaderVStack.swift */; };
+		908D80582899977800A9D27C /* MyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D80572899977800A9D27C /* MyTabView.swift */; };
+		908D805A289998D700A9D27C /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D8059289998D700A9D27C /* MyView.swift */; };
 		90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ECB289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift */; };
 		90C43ECE289909DC0049F1D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C43ECD289909DC0049F1D8 /* ContentView.swift */; };
 		90C43ED0289909DD0049F1D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C43ECF289909DD0049F1D8 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		9059D95F28991C98009228BE /* MyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyList.swift; sourceTree = "<group>"; };
 		908D8053289988CF00A9D27C /* MyGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGeometryReader.swift; sourceTree = "<group>"; };
 		908D805528998F7100A9D27C /* MyGeometryReaderVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGeometryReaderVStack.swift; sourceTree = "<group>"; };
+		908D80572899977800A9D27C /* MyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabView.swift; sourceTree = "<group>"; };
+		908D8059289998D700A9D27C /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		90C43EC8289909DC0049F1D8 /* SwiftUI_Layout_practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Layout_practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C43ECB289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Layout_practiceApp.swift; sourceTree = "<group>"; };
 		90C43ECD289909DC0049F1D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				90D32F0328997F8000406C50 /* MyCircleImage.swift */,
 				908D8053289988CF00A9D27C /* MyGeometryReader.swift */,
 				908D805528998F7100A9D27C /* MyGeometryReaderVStack.swift */,
+				908D80572899977800A9D27C /* MyTabView.swift */,
+				908D8059289998D700A9D27C /* MyView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C43EDA289909F80049F1D8 /* MyProjectCard.swift in Sources */,
+				908D805A289998D700A9D27C /* MyView.swift in Sources */,
 				908D805628998F7100A9D27C /* MyGeometryReaderVStack.swift in Sources */,
 				90D32F062899811D00406C50 /* MyProfileView.swift in Sources */,
 				90D32F0428997F8000406C50 /* MyCircleImage.swift in Sources */,
@@ -176,6 +183,7 @@
 				90C43EE0289916A20049F1D8 /* MyCard.swift in Sources */,
 				90C43ECC289909DC0049F1D8 /* SwiftUI_Layout_practiceApp.swift in Sources */,
 				9059D96028991C98009228BE /* MyList.swift in Sources */,
+				908D80582899977800A9D27C /* MyTabView.swift in Sources */,
 				90D32F01289927F800406C50 /* MyNavigationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
