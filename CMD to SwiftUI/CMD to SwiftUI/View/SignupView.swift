@@ -1,5 +1,5 @@
 //
-//  SigninView.swift
+//  SignupView.swift
 //  CMD to SwiftUI
 //
 //  Created by 홍승재 on 2022/08/09.
@@ -7,18 +7,13 @@
 
 import SwiftUI
 
-struct ColorManager {
-    // create static variables for custom colors
-    static let BackgroundColor = Color("bgColor")
-    
-    //... add the rest of your colors here
-}
-
-struct SigninView: View {
-    
+struct SignupView: View {
     @State var id: String = ""
     @State var pw: String = ""
-    
+    @State var pwc: String = ""
+    @State var code: String = ""
+    @State var isNavigationBarHidden: Bool = true
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { GeometryProxy in
@@ -30,13 +25,13 @@ struct SigninView: View {
                     HStack {
                         Spacer()
                             .frame(width: 50)
-                        Text("로그인")
+                        Text("회원가입")
                             .foregroundColor(.white)
                             .font(.custom("NotoSansKR-Bold", size: 50))
                         Spacer()
                     }
-                    Spacer()
-                        .frame(height:  70)
+//                    Spacer()
+//                        .frame(height:  70)
                     VStack {
                         ZStack(alignment: .leading) {
                             if id.isEmpty {
@@ -56,8 +51,6 @@ struct SigninView: View {
                             .foregroundColor(.white)
                             .padding(.horizontal, 40)
                     }
-                    Spacer()
-                        .frame(height: 46)
                     VStack {
                         ZStack(alignment: .leading) {
                             if pw.isEmpty {
@@ -71,7 +64,45 @@ struct SigninView: View {
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
                         }
-                        .padding(.horizontal, 50).padding(.top, 20)
+                        .padding(.horizontal, 50).padding(.top, 30)
+                        Rectangle()
+                            .frame(height: 1.0, alignment: .bottom)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 40)
+                    }
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            if pw.isEmpty {
+                                Text("비밀번호 확인")
+                                    .foregroundColor(.gray.opacity(0.4))
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                            }
+                            SecureField("", text: $pw)
+                                .font(.custom("NotoSansKR-Regular", size: 18))
+                                .foregroundColor(.white)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                        }
+                        .padding(.horizontal, 50).padding(.top, 30)
+                        Rectangle()
+                            .frame(height: 1.0, alignment: .bottom)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 40)
+                    }
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            if pw.isEmpty {
+                                Text("가입코드")
+                                    .foregroundColor(.gray.opacity(0.4))
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                            }
+                            TextField("", text: $pw)
+                                .font(.custom("NotoSansKR-Regular", size: 18))
+                                .foregroundColor(.white)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                        }
+                        .padding(.horizontal, 50).padding(.top, 30)
                         Rectangle()
                             .frame(height: 1.0, alignment: .bottom)
                             .foregroundColor(.white)
@@ -89,32 +120,34 @@ struct SigninView: View {
                             .background(.white)
                             .cornerRadius(10)
                     }
+//                    .padding(.top, GeometryProxy.size.height / 4)
                     HStack {
-                        Button {
-                            print("go to Signup")
-                        } label: {
-                            Text("아이디가 없으신가요?")
+                        Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
+                            Text("아이디가 있으신가요?")
                                 .font(.custom("NotoSansKR-Regular", size: 12))
                                 .foregroundColor(.white)
                         }
-                        Button {
-                            print("go to Signup")
-                        } label: {
-                            Text("회원가입")
+                        Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
+                            Text("로그인")
                                 .font(.custom("NotoSansKR-Bold", size: 12))
                                 .foregroundColor(.white)
                         }
                     }
                     Spacer()
-                        .frame(height: 80)
+                        .frame(height: 40)
+                }
+                .navigationBarHidden(self.isNavigationBarHidden)
+                .onAppear {
+                    self.isNavigationBarHidden = true
                 }
             }
         }
     }
+
 }
 
-struct SigninView_Previews: PreviewProvider {
+struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
-        SigninView()
+        SignupView()
     }
 }
