@@ -24,6 +24,7 @@
 		90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3728A2A01C009A9C39 /* ClassinfoView.swift */; };
 		90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3928A2A02D009A9C39 /* NoticeboardView.swift */; };
 		90417D3C28A2A033009A9C39 /* Myview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3B28A2A033009A9C39 /* Myview.swift */; };
+		908BF99E28A3A31B00DD982A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* MyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		90417D3728A2A01C009A9C39 /* ClassinfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassinfoView.swift; sourceTree = "<group>"; };
 		90417D3928A2A02D009A9C39 /* NoticeboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeboardView.swift; sourceTree = "<group>"; };
 		90417D3B28A2A033009A9C39 /* Myview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Myview.swift; sourceTree = "<group>"; };
+		908BF99D28A3A31B00DD982A /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				90417D2928A1730B009A9C39 /* SigninView.swift */,
 				90417D2F28A293BD009A9C39 /* SignupView.swift */,
 				90417D3228A29FE8009A9C39 /* TabBarView.swift */,
+				908BF99D28A3A31B00DD982A /* MyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				90417D3028A293BD009A9C39 /* SignupView.swift in Sources */,
 				90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */,
+				908BF99E28A3A31B00DD982A /* MyView.swift in Sources */,
 				90417D2A28A1730B009A9C39 /* SigninView.swift in Sources */,
 				90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */,
 				90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */,

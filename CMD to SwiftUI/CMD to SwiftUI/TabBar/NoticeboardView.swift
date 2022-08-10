@@ -9,7 +9,11 @@ import SwiftUI
 
 struct NoticeboardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            ColorManager.BackgroundColor.ignoresSafeArea()
+            Text("게시판")
+                .foregroundColor(.white)
+        }
     }
 }
 
