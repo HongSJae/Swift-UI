@@ -11,20 +11,20 @@ enum TabIndex {
     case schedule, classinfo, noticeboard, my
 }
 
-struct TabBar: View {
+struct TabBarView: View {
     @State var tabIndex = TabIndex.schedule
     @State var largerScale: CGFloat = 1.6
     
-    func changeMyView(tableIndex: TabIndex) -> MyView {
+    func changeMyView(tableIndex: TabIndex) -> ShowView {
         switch tabIndex {
         case .schedule:
-            return MyView(Number: 1)
+            return ShowView(Number: 1)
         case .classinfo:
-            return MyView(Number: 2)
+            return ShowView(Number: 2)
         case .noticeboard:
-            return MyView(Number: 3)
+            return ShowView(Number: 3)
         case .my:
-            return MyView(Number: 4)
+            return ShowView(Number: 4)
         }
     }
     
@@ -50,7 +50,7 @@ struct TabBar: View {
                     Circle()
                         .frame(width: 90, height: 90)
                         .offset(x: CalcCircleBgPosition(geometry: geometry, tableIndex: tabIndex), y: 15)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("TabBarItemColor"))
                     HStack(spacing: 0) {
                         Button {
                             print("시간표 클릭")
@@ -61,11 +61,11 @@ struct TabBar: View {
                             Image(systemName: "calendar")
                                 .font(.system(size: 25))
                                 .scaleEffect(tabIndex == .schedule ? largerScale : 1)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.white)
                                 .frame(width: geometry.size.width/4, height: 50)
                                 .offset(y: tabIndex == .schedule ? -10 : 0)
                         }
-                        .background(.white)
+                        .background(Color("TabBarItemColor"))
                         Button {
                             print("반 정보 클릭")
                             withAnimation {
@@ -75,11 +75,11 @@ struct TabBar: View {
                             Image(systemName: "info")
                                 .font(.system(size: 25))
                                 .scaleEffect(tabIndex == .classinfo ? largerScale : 1)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.white)
                                 .frame(width: geometry.size.width/4, height: 50)
                                 .offset(y: tabIndex == .classinfo ? -10 : 0)
                         }
-                        .background(.white)
+                        .background(Color("TabBarItemColor"))
                         
                         Button {
                             print("게시판 클릭")
@@ -90,11 +90,11 @@ struct TabBar: View {
                             Image(systemName: "speaker")
                                 .font(.system(size: 25))
                                 .scaleEffect(tabIndex == .noticeboard ? largerScale : 1)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.white)
                                 .frame(width: geometry.size.width/4, height: 50)
                                 .offset(y: tabIndex == .noticeboard ? -10 : 0)
                         }
-                        .background(.white)
+                        .background(Color("TabBarItemColor"))
                         Button {
                             print("게시판 클릭")
                             withAnimation {
@@ -104,25 +104,26 @@ struct TabBar: View {
                             Image(systemName: "person")
                                 .font(.system(size: 25))
                                 .scaleEffect(tabIndex == .my ? largerScale : 1)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.white)
                                 .frame(width: geometry.size.width/4, height: 50)
                                 .offset(y: tabIndex == .my ? -10 : 0)
                         }
-                        .background(.white)
+                        .background(Color("TabBarItemColor"))
                     }
                 }
                 Rectangle()
                     .frame(height:
                             UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 0 : 20)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("TabBarItemColor"))
             }
+            .navigationBarHidden(true)
         }
         .edgesIgnoringSafeArea(.all)
     }
     
     struct TabBar_Previews: PreviewProvider {
         static var previews: some View {
-            TabBar()
+            TabBarView()
         }
     }
 }

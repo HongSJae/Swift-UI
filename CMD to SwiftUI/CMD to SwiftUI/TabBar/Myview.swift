@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Myview: View {
+struct MyView: View {
     var body: some View {
         ZStack {
             ColorManager.BackgroundColor.ignoresSafeArea()
@@ -17,8 +17,8 @@ struct Myview: View {
     }
 }
 
-struct Myview_Previews: PreviewProvider {
+struct MyView_Previews: PreviewProvider {
     static var previews: some View {
-        Myview()
+        MyView()
     }
 }

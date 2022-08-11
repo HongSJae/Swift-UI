@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MyView: View {
+struct ShowView: View {
     
     var Number: Int
     
@@ -21,7 +21,7 @@ struct MyView: View {
             case 3 :
                 NoticeboardView()
             case 4 :
-                Myview()
+                MyView()
             default:
                 ScheduleView()
             }
@@ -30,8 +30,8 @@ struct MyView: View {
     }
 }
  
-struct MyView_Previews: PreviewProvider {
+struct ShowView_Previews: PreviewProvider {
     static var previews: some View {
-        MyView(Number: 1)
+        ShowView(Number: 1)
     }
 }

@@ -23,8 +23,14 @@
 		90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3528A2A011009A9C39 /* ScheduleView.swift */; };
 		90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3728A2A01C009A9C39 /* ClassinfoView.swift */; };
 		90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3928A2A02D009A9C39 /* NoticeboardView.swift */; };
-		90417D3C28A2A033009A9C39 /* Myview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3B28A2A033009A9C39 /* Myview.swift */; };
-		908BF99E28A3A31B00DD982A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* MyView.swift */; };
+		90417D3C28A2A033009A9C39 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3B28A2A033009A9C39 /* MyView.swift */; };
+		908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* ShowView.swift */; };
+		908BF9A028A4352B00DD982A /* GetSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99F28A4352B00DD982A /* GetSchedule.swift */; };
+		908BF9A328A435BD00DD982A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 908BF9A228A435BD00DD982A /* Alamofire */; };
+		908BF9A528A435EF00DD982A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF9A428A435EF00DD982A /* Response.swift */; };
+		90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5628A524BF00483808 /* SignupAPI.swift */; };
+		90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */; };
+		90E5F00428A4EA50004BE3AB /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00328A4EA50004BE3AB /* SignInAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +52,13 @@
 		90417D3528A2A011009A9C39 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		90417D3728A2A01C009A9C39 /* ClassinfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassinfoView.swift; sourceTree = "<group>"; };
 		90417D3928A2A02D009A9C39 /* NoticeboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeboardView.swift; sourceTree = "<group>"; };
-		90417D3B28A2A033009A9C39 /* Myview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Myview.swift; sourceTree = "<group>"; };
-		908BF99D28A3A31B00DD982A /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		90417D3B28A2A033009A9C39 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		908BF99D28A3A31B00DD982A /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
+		908BF99F28A4352B00DD982A /* GetSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSchedule.swift; sourceTree = "<group>"; };
+		908BF9A428A435EF00DD982A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		90A5BA5628A524BF00483808 /* SignupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAPI.swift; sourceTree = "<group>"; };
+		90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		90E5F00328A4EA50004BE3AB /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908BF9A328A435BD00DD982A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,8 @@
 			children = (
 				90417D2328A162FC009A9C39 /* CMD-to-SwiftUI-Info.plist */,
 				90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */,
+				908BF9A428A435EF00DD982A /* Response.swift */,
+				908BF9A828A4438700DD982A /* API */,
 				90417D3428A29FEE009A9C39 /* View */,
 				90417D3128A29FC3009A9C39 /* TabBar */,
 				90417D0A28A15EBE009A9C39 /* Assets.xcassets */,
@@ -118,7 +132,7 @@
 				90417D3528A2A011009A9C39 /* ScheduleView.swift */,
 				90417D3728A2A01C009A9C39 /* ClassinfoView.swift */,
 				90417D3928A2A02D009A9C39 /* NoticeboardView.swift */,
-				90417D3B28A2A033009A9C39 /* Myview.swift */,
+				90417D3B28A2A033009A9C39 /* MyView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -130,9 +144,20 @@
 				90417D2928A1730B009A9C39 /* SigninView.swift */,
 				90417D2F28A293BD009A9C39 /* SignupView.swift */,
 				90417D3228A29FE8009A9C39 /* TabBarView.swift */,
-				908BF99D28A3A31B00DD982A /* MyView.swift */,
+				908BF99D28A3A31B00DD982A /* ShowView.swift */,
+				90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		908BF9A828A4438700DD982A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				90E5F00328A4EA50004BE3AB /* SignInAPI.swift */,
+				90A5BA5628A524BF00483808 /* SignupAPI.swift */,
+				908BF99F28A4352B00DD982A /* GetSchedule.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +176,9 @@
 			dependencies = (
 			);
 			name = "CMD to SwiftUI";
+			packageProductDependencies = (
+				908BF9A228A435BD00DD982A /* Alamofire */,
+			);
 			productName = "CMD to SwiftUI";
 			productReference = 90417D0328A15EBB009A9C39 /* CMD to SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +207,9 @@
 				Base,
 			);
 			mainGroup = 90417CFA28A15EBB009A9C39;
+			packageReferences = (
+				908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 90417D0428A15EBB009A9C39 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,16 +242,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E5F00428A4EA50004BE3AB /* SignInAPI.swift in Sources */,
+				908BF9A028A4352B00DD982A /* GetSchedule.swift in Sources */,
 				90417D3028A293BD009A9C39 /* SignupView.swift in Sources */,
+				90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */,
 				90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */,
-				908BF99E28A3A31B00DD982A /* MyView.swift in Sources */,
+				908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */,
+				908BF9A528A435EF00DD982A /* Response.swift in Sources */,
 				90417D2A28A1730B009A9C39 /* SigninView.swift in Sources */,
 				90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */,
 				90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */,
+				90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */,
 				90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */,
 				90417D3328A29FE8009A9C39 /* TabBarView.swift in Sources */,
 				90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */,
-				90417D3C28A2A033009A9C39 /* Myview.swift in Sources */,
+				90417D3C28A2A033009A9C39 /* MyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +459,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		908BF9A228A435BD00DD982A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90417CFB28A15EBB009A9C39 /* Project object */;
 }
