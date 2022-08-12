@@ -33,7 +33,7 @@ func SignUp(id: String, pw: String, code: String) {
             print("회원가입 성공")
         } catch {
             print(error)
-            AlertFunc(title: "가입코드가 다른데요?😅", message: "다시 확인 후 적어주세요!")
+//            AlertFunc(title: "가입코드가 다른데요?😅", message: "다시 확인 후 적어주세요!")
         }
     }
     

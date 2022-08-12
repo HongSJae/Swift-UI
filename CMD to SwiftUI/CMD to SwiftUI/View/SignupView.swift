@@ -110,10 +110,10 @@ struct SignupView: View {
                     Spacer()
                     Button {
                         if id.isEmpty == true || pw.isEmpty == true || pwc.isEmpty == true || code.isEmpty == true {
-                            AlertFunc(title: "공백이 있습니다", message: "모든 칸을 입력해주세요")
+//                            AlertFunc(title: "공백이 있습니다", message: "모든 칸을 입력해주세요")
                         } else {
                             if pw != pwc {
-                                AlertFunc(title: "비밀번호가 다릅니다", message: "비밀번호와 비밀번호 확인에 \n적힌 값이 다릅니다! 확인해주세요!")
+//                                AlertFunc(title: "비밀번호가 다릅니다", message: "비밀번호와 비밀번호 확인에 \n적힌 값이 다릅니다! 확인해주세요!")
                             } else {
                                 print("SignUp!!")
                                 SignUp(id: id, pw: pw, code: code)

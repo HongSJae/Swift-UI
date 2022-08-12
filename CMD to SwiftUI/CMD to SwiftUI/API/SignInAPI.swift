@@ -31,25 +31,12 @@ func Login(id: String, pw: String) {
             let model = try JSONDecoder().decode(SignInInfo.self, from: result.data!)
             Token = model.accessToken
             print("보낼 토큰은 : \(Token ?? "error")")
+            getTimeSchedule()
         } catch {
             print(result)
             print(error)
-            AlertFunc(title: "아이디나 비밀번호 확인바람", message: "아이디나 비밀번호가 잘못되었습니다")
+//            AlertFunc(title: "아이디나 비밀번호 확인바람", message: "아이디나 비밀번호가 잘못되었습니다")
         }
     }
     
-}
-
-func AlertFunc(title: String, message: String) {
-    let alert = UIAlertController(
-        title: title,
-        message: message,
-        preferredStyle: .alert)
-    let action = UIAlertAction(
-        title: "네",
-        style: .default,
-        handler: nil)
-    alert.addAction(action)
-           
-    present(alert, animated: true, completion: nil)
 }

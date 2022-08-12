@@ -78,18 +78,38 @@ struct SigninView: View {
                     Button {
                         if id == "" || pw == "" {
                             //ID나 PW가 공백일 때
-                            AlertFunc(title: "입력이 잘못됨", message: "아이디나 비밀번호가 공백이 있습니다\n확인해주세요")
+//                            AlertFunc(title: "입력이 잘못됨", message: "아이디나 비밀번호가 공백이 있습니다\n확인해주세요")
                         } else {
                             //아니면 로그인
+//                            Login(id: id, pw: pw)
+//                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                              // 1초 후 실행될 부분
+//                                switch Token {
+//                                case "nil", nil :
+//                                    print("token is nil")
+//                                    break
+//                                default :
+//                                    getTimeSchedule()
+//                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+//                                      // 1초 후 실행될 부분
+//                                        self.tag = 1
+//                                        print("Login!!")
+//                                    }
+//                                }
+//                            }
                             Login(id: id, pw: pw)
-                            switch Token {
-                            case "nil", nil :
-                                print("token is nil")
-                                break
-                            default :
-                                self.tag = 1
-                                print("Login!!")
+                            
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                                switch Token {
+                                case "nil", nil :
+                                    print("token is nil")
+                                    break
+                                default :
+                                    self.tag = 1
+                                    print("Login!!")
+                                }
                             }
+                            
                         }
                     } label: {
                         Text("로그인")

@@ -43,7 +43,7 @@ struct ScheduleView: View {
                             .padding(.trailing, 50)
                     }
                     ScrollView() {
-                        Text("시간표 1")
+                        Text(schedule.class1)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -52,7 +52,7 @@ struct ScheduleView: View {
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
 //                            .shadow(color: .black, radius: 5, x: 0, y: 5)
-                        Text("시간표 2")
+                        Text(schedule.class2)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -60,7 +60,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 3")
+                        Text(schedule.class3)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -68,7 +68,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 4")
+                        Text(schedule.class4)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -76,7 +76,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 5")
+                        Text(schedule.class5)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -84,7 +84,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 6")
+                        Text(schedule.class6)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -92,7 +92,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 7")
+                        Text(schedule.class7)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -100,7 +100,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 8")
+                        Text(schedule.class8)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -108,7 +108,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 9")
+                        Text(schedule.class9)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -116,7 +116,7 @@ struct ScheduleView: View {
                             .cornerRadius(10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 50)
-                        Text("시간표 10")
+                        Text(schedule.class10)
                             .font(.custom("NotoSansKR-Regular", size: 25))
                             .frame(width: GeometryProxy.size.width - 100,
                                    height: GeometryProxy.size.height / 11)
@@ -130,7 +130,6 @@ struct ScheduleView: View {
                 }
             }
             .onAppear() {
-                getTimeSchedule()
                 print(schedule)
             }
         }

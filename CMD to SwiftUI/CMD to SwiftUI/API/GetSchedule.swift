@@ -45,7 +45,7 @@ func getTimeSchedule() {
             schedule.class8 = model.period8th
             schedule.class9 = model.period9th
             schedule.class10 = model.period10th
-            
+            print("schedule changed! : \(schedule)")
         } catch {
             print(error)
             print("에런데용 :( ?")
