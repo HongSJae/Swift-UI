@@ -32,6 +32,7 @@
 		90A5BA5B28A62A2200483808 /* StudentsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5A28A62A2200483808 /* StudentsProfile.swift */; };
 		90A5BA5D28A62F0300483808 /* Detail_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5C28A62F0300483808 /* Detail_Info.swift */; };
 		90A5BA5F28A6362100483808 /* info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5E28A6362100483808 /* info.swift */; };
+		90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA6028A7F10A00483808 /* GetClassinfo.swift */; };
 		90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */; };
 		90E5F00428A4EA50004BE3AB /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00328A4EA50004BE3AB /* SignInAPI.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		90A5BA5A28A62A2200483808 /* StudentsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsProfile.swift; sourceTree = "<group>"; };
 		90A5BA5C28A62F0300483808 /* Detail_Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail_Info.swift; sourceTree = "<group>"; };
 		90A5BA5E28A6362100483808 /* info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = info.swift; sourceTree = "<group>"; };
+		90A5BA6028A7F10A00483808 /* GetClassinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClassinfo.swift; sourceTree = "<group>"; };
 		90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		90E5F00328A4EA50004BE3AB /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				90E5F00328A4EA50004BE3AB /* SignInAPI.swift */,
 				90A5BA5628A524BF00483808 /* SignupAPI.swift */,
 				908BF99F28A4352B00DD982A /* GetSchedule.swift */,
+				90A5BA6028A7F10A00483808 /* GetClassinfo.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				90417D3328A29FE8009A9C39 /* TabBarView.swift in Sources */,
 				90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */,
 				90417D3C28A2A033009A9C39 /* MyView.swift in Sources */,
+				90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

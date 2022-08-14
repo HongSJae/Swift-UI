@@ -68,4 +68,37 @@ struct Schedule {
 
 var schedule = Schedule(class1: "1", class2: "2", class3: "3", class4: "4", class5: "5", class6: "6", class7: "7", class8: "8", class9: "9", class10: "10")
 
-
+class GetSchedule: ObservableObject {
+    
+    @Published var schedule = [TimeGet]()
+    
+    init() {
+        
+    }
+    
+//    func fetchSchedule() {
+//        let url = "http://54.180.122.62:8080/user/timetable/" + WeekDaydate()
+//        print("WeekDayDate: \(WeekDaydate())")
+//        AF.request(url, method: .get)
+//            .responseDecodable(of: [TimeGet].self) { data in
+//                guard let data = data.value else { return }
+//                self.schedule = data
+//            }
+//    }
+    
+//    func postPost() {
+//        let url = "https://jsonplaceholder.typicode.com/posts"
+//
+//        let param: [String: Any] = [
+//            "userId" : 1000,
+//            "id" : 1000,
+//            "title" : "title",
+//            "body" : "body"
+//        ]
+//
+//        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
+//            .responseDecodable(of: Post.self) { response in
+//                print("POST DEBUG : \(response)")
+//            }
+//    }
+}

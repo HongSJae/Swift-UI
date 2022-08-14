@@ -9,17 +9,25 @@ import SwiftUI
 
 struct Detail_Info: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-     var body: some View {
-       Group {
-         Text("Modal view")
-         Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-         }) {
-           Text("Dismiss")
-         }
-       }
-     }
+    
+    var body: some View {
+        ZStack(alignment: .top) {
+            ColorManager.BackgroundColor.ignoresSafeArea()
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image("x")
+                            .resizable()
+                            .frame(width: 16, height: 16)
+                            .padding(20)
+                    }
+                }
+            }
+        }
+    }
 }
 
 struct Detail_Info_Previews: PreviewProvider {
