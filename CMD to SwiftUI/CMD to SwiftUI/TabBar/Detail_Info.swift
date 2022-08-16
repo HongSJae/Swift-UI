@@ -36,7 +36,7 @@ struct Detail_Info: View {
                     Image("Logo")
                         .resizable()
                         .frame(width: proxy.size.width / 5, height: proxy.size.width / 5)
-                    Text("")
+                    Text("이름")
                 }
             }
         }
