@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9035D84028B4D90C00915166 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9035D83F28B4D90C00915166 /* SigninView.swift */; };
+		9035D84228B4E8EF00915166 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9035D84128B4E8EF00915166 /* KeyboardHandler.swift */; };
 		90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */; };
 		90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D0828A15EBB009A9C39 /* ContentView.swift */; };
 		90417D0B28A15EBE009A9C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90417D0A28A15EBE009A9C39 /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		90417D2028A162A2009A9C39 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90417D1A28A162A2009A9C39 /* NotoSansKR-Light.otf */; };
 		90417D2128A162A2009A9C39 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90417D1B28A162A2009A9C39 /* NotoSansKR-Thin.otf */; };
 		90417D2228A162A2009A9C39 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90417D1C28A162A2009A9C39 /* NotoSansKR-Black.otf */; };
-		90417D2A28A1730B009A9C39 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D2928A1730B009A9C39 /* SigninView.swift */; };
 		90417D3028A293BD009A9C39 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D2F28A293BD009A9C39 /* SignupView.swift */; };
 		90417D3328A29FE8009A9C39 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3228A29FE8009A9C39 /* TabBarView.swift */; };
 		90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3528A2A011009A9C39 /* ScheduleView.swift */; };
@@ -25,7 +26,6 @@
 		90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3928A2A02D009A9C39 /* NoticeboardView.swift */; };
 		90417D3C28A2A033009A9C39 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D3B28A2A033009A9C39 /* MyView.swift */; };
 		908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* ShowView.swift */; };
-		908BF9A028A4352B00DD982A /* GetSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99F28A4352B00DD982A /* GetSchedule.swift */; };
 		908BF9A328A435BD00DD982A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 908BF9A228A435BD00DD982A /* Alamofire */; };
 		908BF9A528A435EF00DD982A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF9A428A435EF00DD982A /* Response.swift */; };
 		90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5628A524BF00483808 /* SignupAPI.swift */; };
@@ -34,10 +34,11 @@
 		90A5BA5F28A6362100483808 /* info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5E28A6362100483808 /* info.swift */; };
 		90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA6028A7F10A00483808 /* GetClassinfo.swift */; };
 		90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */; };
-		90E5F00428A4EA50004BE3AB /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00328A4EA50004BE3AB /* SignInAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9035D83F28B4D90C00915166 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+		9035D84128B4E8EF00915166 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		90417D0328A15EBB009A9C39 /* CMD to SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CMD to SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMD_to_SwiftUIApp.swift; sourceTree = "<group>"; };
 		90417D0828A15EBB009A9C39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		90417D1B28A162A2009A9C39 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../Downloads/Noto_Sans_KR/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		90417D1C28A162A2009A9C39 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Black.otf"; path = "../../../../../Downloads/Noto_Sans_KR/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		90417D2328A162FC009A9C39 /* CMD-to-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CMD-to-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
-		90417D2928A1730B009A9C39 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		90417D2F28A293BD009A9C39 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		90417D3228A29FE8009A9C39 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		90417D3528A2A011009A9C39 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -58,7 +58,6 @@
 		90417D3928A2A02D009A9C39 /* NoticeboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeboardView.swift; sourceTree = "<group>"; };
 		90417D3B28A2A033009A9C39 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		908BF99D28A3A31B00DD982A /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
-		908BF99F28A4352B00DD982A /* GetSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSchedule.swift; sourceTree = "<group>"; };
 		908BF9A428A435EF00DD982A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		90A5BA5628A524BF00483808 /* SignupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAPI.swift; sourceTree = "<group>"; };
 		90A5BA5A28A62A2200483808 /* StudentsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsProfile.swift; sourceTree = "<group>"; };
@@ -66,7 +65,6 @@
 		90A5BA5E28A6362100483808 /* info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = info.swift; sourceTree = "<group>"; };
 		90A5BA6028A7F10A00483808 /* GetClassinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClassinfo.swift; sourceTree = "<group>"; };
 		90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
-		90E5F00328A4EA50004BE3AB /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +102,7 @@
 				90417D2328A162FC009A9C39 /* CMD-to-SwiftUI-Info.plist */,
 				90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */,
 				908BF9A428A435EF00DD982A /* Response.swift */,
+				9035D84128B4E8EF00915166 /* KeyboardHandler.swift */,
 				908BF9A828A4438700DD982A /* API */,
 				90417D3428A29FEE009A9C39 /* View */,
 				90417D3128A29FC3009A9C39 /* TabBar */,
@@ -150,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				90417D0828A15EBB009A9C39 /* ContentView.swift */,
-				90417D2928A1730B009A9C39 /* SigninView.swift */,
+				9035D83F28B4D90C00915166 /* SigninView.swift */,
 				90417D2F28A293BD009A9C39 /* SignupView.swift */,
 				90417D3228A29FE8009A9C39 /* TabBarView.swift */,
 				908BF99D28A3A31B00DD982A /* ShowView.swift */,
@@ -164,9 +163,7 @@
 		908BF9A828A4438700DD982A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				90E5F00328A4EA50004BE3AB /* SignInAPI.swift */,
 				90A5BA5628A524BF00483808 /* SignupAPI.swift */,
-				908BF99F28A4352B00DD982A /* GetSchedule.swift */,
 				90A5BA6028A7F10A00483808 /* GetClassinfo.swift */,
 			);
 			path = API;
@@ -254,8 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E5F00428A4EA50004BE3AB /* SignInAPI.swift in Sources */,
-				908BF9A028A4352B00DD982A /* GetSchedule.swift in Sources */,
 				90417D3028A293BD009A9C39 /* SignupView.swift in Sources */,
 				90A5BA5F28A6362100483808 /* info.swift in Sources */,
 				90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */,
@@ -263,15 +258,16 @@
 				90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */,
 				908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */,
 				908BF9A528A435EF00DD982A /* Response.swift in Sources */,
-				90417D2A28A1730B009A9C39 /* SigninView.swift in Sources */,
 				90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */,
 				90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */,
 				90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */,
 				90A5BA5B28A62A2200483808 /* StudentsProfile.swift in Sources */,
 				90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */,
 				90417D3328A29FE8009A9C39 /* TabBarView.swift in Sources */,
+				9035D84228B4E8EF00915166 /* KeyboardHandler.swift in Sources */,
 				90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */,
 				90417D3C28A2A033009A9C39 /* MyView.swift in Sources */,
+				9035D84028B4D90C00915166 /* SigninView.swift in Sources */,
 				90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

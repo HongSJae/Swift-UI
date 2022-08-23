@@ -35,7 +35,7 @@ func getTimeSchedule() {
         do{
             let model = try JSONDecoder().decode(TimeGet.self, from: result.data!)
             print("success")
-            schedule.class1 = model.period1st
+            schedule.class1 = model.period1st!
             schedule.class2 = model.period2nd
             schedule.class3 = model.period3th
             schedule.class4 = model.period4th

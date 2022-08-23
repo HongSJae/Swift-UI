@@ -25,7 +25,7 @@ struct ContentView: View {
                         Image("Logo")
                             .resizable()
                             .frame(width: 177, height: 166)
-                            .padding(.top, 190)
+                            .padding(.top, GeometryProxy.size.width * 0.40)
                         Spacer()
                         NavigationLink(destination: SigninView()) {
                             Text("여기를 눌러서 시작하세요")

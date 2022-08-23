@@ -12,12 +12,15 @@ struct SignupView: View {
     @State var pw: String = ""
     @State var pwc: String = ""
     @State var code: String = ""
+    
+    @State var openEye1 = false
+    @State var openEye2 = false
 //    @State var isNavigationBarHidden: Bool = true
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { GeometryProxy in
-            ZStack(alignment: .bottom) {
+            ZStack {
                 ColorManager.BackgroundColor.ignoresSafeArea()
                 VStack {
                     HStack {
@@ -26,7 +29,8 @@ struct SignupView: View {
                         Text("회원가입")
                             .foregroundColor(.white)
                             .font(.custom("NotoSansKR-Bold", size: 50))
-                            .padding(.top ,74)
+                            .padding(.top, GeometryProxy.size.width/6 - 10)
+                            .padding(.bottom, GeometryProxy.size.width/9 - 20)
                         Spacer()
                     }
 //                    Spacer()
@@ -57,11 +61,32 @@ struct SignupView: View {
                                     .foregroundColor(.gray.opacity(0.4))
                                     .font(.custom("NotoSansKR-Regular", size: 18))
                             }
-                            SecureField("", text: $pw)
-                                .font(.custom("NotoSansKR-Regular", size: 18))
-                                .foregroundColor(.white)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
+                            if !openEye1 {
+                                SecureField("", text: $pw)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            } else {
+                                TextField("", text: $pw)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            }
+                            if !pw.isEmpty {
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        self.openEye1.toggle()
+                                        print(openEye1)
+                                    } label: {
+                                        Image(systemName: openEye1 ? "eye" : "eye.slash")
+                                            .foregroundColor(.white)
+                                            .font(.custom("NotoSansKR-Regular", size: 18))
+                                    }
+                                }
+                            }
                         }
                         .padding(.horizontal, 50).padding(.top, 30)
                         Rectangle()
@@ -71,16 +96,37 @@ struct SignupView: View {
                     }
                     VStack {
                         ZStack(alignment: .leading) {
-                            if pw.isEmpty {
+                            if pwc.isEmpty {
                                 Text("비밀번호 확인")
                                     .foregroundColor(.gray.opacity(0.4))
                                     .font(.custom("NotoSansKR-Regular", size: 18))
                             }
-                            SecureField("", text: $pwc)
-                                .font(.custom("NotoSansKR-Regular", size: 18))
-                                .foregroundColor(.white)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
+                            if !openEye2 {
+                                SecureField("", text: $pwc)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            } else {
+                                TextField("", text: $pwc)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            }
+                            if !pwc.isEmpty {
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        self.openEye2.toggle()
+                                        print(openEye2)
+                                    } label: {
+                                        Image(systemName: openEye2 ? "eye" : "eye.slash")
+                                            .foregroundColor(.white)
+                                            .font(.custom("NotoSansKR-Regular", size: 18))
+                                    }
+                                }
+                            }
                         }
                         .padding(.horizontal, 50).padding(.top, 30)
                         Rectangle()
@@ -90,7 +136,7 @@ struct SignupView: View {
                     }
                     VStack {
                         ZStack(alignment: .leading) {
-                            if pw.isEmpty {
+                            if code.isEmpty {
                                 Text("가입코드")
                                     .foregroundColor(.gray.opacity(0.4))
                                     .font(.custom("NotoSansKR-Regular", size: 18))
@@ -110,10 +156,8 @@ struct SignupView: View {
                     Spacer()
                     Button {
                         if id.isEmpty == true || pw.isEmpty == true || pwc.isEmpty == true || code.isEmpty == true {
-//                            AlertFunc(title: "공백이 있습니다", message: "모든 칸을 입력해주세요")
                         } else {
                             if pw != pwc {
-//                                AlertFunc(title: "비밀번호가 다릅니다", message: "비밀번호와 비밀번호 확인에 \n적힌 값이 다릅니다! 확인해주세요!")
                             } else {
                                 print("SignUp!!")
                                 SignUp(id: id, pw: pw, code: code)
@@ -128,13 +172,11 @@ struct SignupView: View {
                             .background(.white)
                             .cornerRadius(10)
                     }
-                    HStack {
-                        Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
+                    Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
+                        HStack {
                             Text("아이디가 있으신가요?")
                                 .font(.custom("NotoSansKR-Regular", size: 12))
                                 .foregroundColor(.white)
-                        }
-                        Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
                             Text("로그인")
                                 .font(.custom("NotoSansKR-Bold", size: 12))
                                 .foregroundColor(.white)
@@ -143,13 +185,10 @@ struct SignupView: View {
                     Spacer()
                         .frame(height: 40)
                 }
-//                .navigationBarHidden(self.isNavigationBarHidden)
-//                .onAppear  {
-//                    self.isNavigationBarHidden = true
-//                }
                 .navigationBarHidden(true)
                 .onAppear (perform : UIApplication.shared.hideKeyboard)
                 }
+            .ignoresSafeArea(.keyboard)
         }
     }
 }

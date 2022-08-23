@@ -4,8 +4,8 @@
 //
 //  Created by 홍승재 on 2022/08/09.
 //
-
 import SwiftUI
+import Alamofire
 
 var Token: String? = "nil"
 
@@ -14,8 +14,39 @@ struct SigninView: View {
     @State var id: String = ""
     @State var pw: String = ""
     @State var tag:Int? = nil
-//    @State var isNavigationBarHidden: Bool = true
+    @State var openEye: Bool = false
     
+    func Login() {
+        let url = "http://54.180.122.62:8080/signin"
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
+        
+        // POST 로 보낼 정보
+        let params = ["userId":id, "password":pw] as Dictionary
+        
+        // httpBody 에 parameters 추가
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { result in
+            do{
+                let model = try JSONDecoder().decode(SignInInfo.self, from: result.data!)
+                Token = model.accessToken
+                print("보낼 토큰은 : \(Token ?? "error")")
+                self.tag = 1
+            } catch {
+                print(result)
+                print(error)
+            }
+        }
+        
+    }
     
     var body: some View {
         GeometryReader { GeometryProxy in
@@ -31,11 +62,10 @@ struct SigninView: View {
                         Text("로그인")
                             .foregroundColor(.white)
                             .font(.custom("NotoSansKR-Bold", size: 50))
-                            .padding(.top, 74)
+                            .padding(.top, GeometryProxy.size.width/6)
+                            .padding(.bottom, GeometryProxy.size.width/9 - 10)
                         Spacer()
                     }
-                    Spacer()
-                        .frame(height:  70)
                     VStack {
                         ZStack(alignment: .leading) {
                             if id.isEmpty {
@@ -61,14 +91,38 @@ struct SigninView: View {
                                 Text("비밀번호")
                                     .foregroundColor(.gray.opacity(0.4))
                                     .font(.custom("NotoSansKR-Regular", size: 18))
+                            } else {
+                                
                             }
-                            SecureField("", text: $pw)
-                                .font(.custom("NotoSansKR-Regular", size: 18))
-                                .foregroundColor(.white)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
+                            if !openEye {
+                                SecureField("", text: $pw)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            } else {
+                                TextField("", text: $pw)
+                                    .font(.custom("NotoSansKR-Regular", size: 18))
+                                    .foregroundColor(.white)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                            }
+                            if !pw.isEmpty {
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        self.openEye.toggle()
+                                        print(openEye)
+                                    } label: {
+                                        Image(systemName: openEye ? "eye" : "eye.slash")
+                                            .foregroundColor(.white)
+                                            .font(.custom("NotoSansKR-Regular", size: 18))
+                                    }
+                                }
+                            }
                         }
-                        .padding(.horizontal, 50).padding(.top, 30)
+                        .padding(.horizontal, 50)
+                        .padding(.top, 30)
                         Rectangle()
                             .frame(height: 1.0, alignment: .bottom)
                             .foregroundColor(.white)
@@ -77,39 +131,8 @@ struct SigninView: View {
                     Spacer()
                     Button {
                         if id == "" || pw == "" {
-                            //ID나 PW가 공백일 때
-//                            AlertFunc(title: "입력이 잘못됨", message: "아이디나 비밀번호가 공백이 있습니다\n확인해주세요")
                         } else {
-                            //아니면 로그인
-//                            Login(id: id, pw: pw)
-//                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                              // 1초 후 실행될 부분
-//                                switch Token {
-//                                case "nil", nil :
-//                                    print("token is nil")
-//                                    break
-//                                default :
-//                                    getTimeSchedule()
-//                                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-//                                      // 1초 후 실행될 부분
-//                                        self.tag = 1
-//                                        print("Login!!")
-//                                    }
-//                                }
-//                            }
-                            Login(id: id, pw: pw)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                                switch Token {
-                                case "nil", nil :
-                                    print("token is nil")
-                                    break
-                                default :
-                                    self.tag = 1
-                                    print("Login!!")
-                                }
-                            }
-                            
+                            Login()
                         }
                     } label: {
                         Text("로그인")
@@ -120,23 +143,23 @@ struct SigninView: View {
                             .background(.white)
                             .cornerRadius(10)
                     }
-                    HStack {
-                        NavigationLink(destination: SignupView()) {
+                    NavigationLink(destination: SignupView()) {
+                        HStack {
                             Text("아이디가 없으신가요?")
                                 .font(.custom("NotoSansKR-Regular", size: 12))
                                 .foregroundColor(.white)
-                        }
-                        NavigationLink(destination: SignupView()){
-                            Text("회원가입")
-                                .font(.custom("NotoSansKR-Bold", size: 12))
-                                .foregroundColor(.white)
+                            
+                                Text("회원가입")
+                                    .font(.custom("NotoSansKR-Bold", size: 12))
+                                    .foregroundColor(.white)
                         }
                     }
                     Spacer()
                         .frame(height: 40)
                 }
+                .ignoresSafeArea(.keyboard)
             }
-                .navigationBarHidden(true) 
+                .navigationBarHidden(true)
                 .onAppear (perform : UIApplication.shared.hideKeyboard)
         }
     }

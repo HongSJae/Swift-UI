@@ -31,7 +31,6 @@ func Login(id: String, pw: String) {
             let model = try JSONDecoder().decode(SignInInfo.self, from: result.data!)
             Token = model.accessToken
             print("보낼 토큰은 : \(Token ?? "error")")
-            getTimeSchedule()
         } catch {
             print(result)
             print(error)

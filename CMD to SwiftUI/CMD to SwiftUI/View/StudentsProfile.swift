@@ -15,22 +15,26 @@ struct StudentsProfile: View {
     var name: String
     
     var body: some View {
-        VStack{
+        ZStack{
             Button(action: {
                 self.showModal = true
             }){
-                Image("Profile")
-                    .resizable()
-                    .frame(width: proxy.size.width/4, height: proxy.size.width/4)
+                Circle()
+                    .frame(width: proxy.size.width/3.5, height: proxy.size.width/3.5)
+                    .foregroundColor(.white)
             }
             .sheet(isPresented: self.$showModal) {
                 Detail_Info()
             }
             
+            Image("Logo-B")
+                .resizable()
+                .frame(width: proxy.size.width/4.5, height: proxy.size.width/5)
+                .opacity(0.3)
+            
             Text(name)
-                .font(.custom("NotoSansKR-Regular", size: 15))
-                .foregroundColor(.white)
-                .padding(.top, 8)
+                .font(.custom("NotoSansKR-Bold", size: 30))
+                .foregroundColor(.black)
         }
     }
 }
