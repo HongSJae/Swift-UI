@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import PopupView
 
 struct ScheduleView: View {
     
@@ -21,9 +22,76 @@ struct ScheduleView: View {
     @State var Class9: String = ""
     @State var Class10: String = ""
     
+    @State var shouldTopToastLeftMessage: Bool = false
+    @State var shouldTopToastNowMessage: Bool = false
+    @State var shouldTopToastRightMessage: Bool = false
+    
     @State var date: String = ""
     @State var PlusDate: Int = 0
     @State var MinusDate: Int = 0
+    
+    @State var NowDateFormatter = Date()
+    
+    func createTopToastLeftMessage() -> some View{
+        HStack(alignment: .center, spacing:10){
+            Image(systemName: "arrow.counterclockwise")
+                .font(.system(size: 30))
+                .foregroundColor(.white)
+                .padding(.leading, 5)
+            
+            VStack(alignment:.center){
+                Text("전날 시간표로 변경되었습니다.")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .padding(.trailing, 15)
+        }
+        .padding(.vertical, 5)
+        .padding(.horizontal, 10)
+        .background(.secondary)
+        .cornerRadius(25)
+        .padding(.top, UIApplication.shared.windows.first? .safeAreaInsets.bottom == 0 ? 0 : 20)
+    }
+    func createTopToastNowMessage() -> some View{
+        HStack(alignment: .center, spacing:10){
+            Image(systemName: "arrow.down")
+                .font(.system(size: 30))
+                .foregroundColor(.white)
+                .padding(.leading, 5)
+            
+            Text("현제 시간표로 변경되었습니다.")
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            .padding(.trailing, 15)
+        }
+        .padding(.vertical, 5)
+        .padding(.horizontal, 10)
+        .background(.secondary)
+        .cornerRadius(25)
+        .padding(.top, UIApplication.shared.windows.first? .safeAreaInsets.bottom == 0 ? 0 : 20)
+        
+    }
+    
+    func createTopToastRightMessage() -> some View{
+        HStack(alignment: .center, spacing:10){
+            Image(systemName: "arrow.clockwise")
+                .font(.system(size: 30))
+                .foregroundColor(.white)
+                .padding(.leading, 5)
+            
+            VStack(alignment:.center){
+                Text("다음날 시간표로 변경되었습니다.")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .padding(.trailing, 15)
+        }
+        .padding(.vertical, 5)
+        .padding(.horizontal, 10)
+        .background(.secondary)
+        .cornerRadius(25)
+        .padding(.top, UIApplication.shared.windows.first? .safeAreaInsets.bottom == 0 ? 0 : 20)
+    }
     
     func getYesterDayDateTime24() {
         MinusDate += 1
@@ -36,6 +104,7 @@ struct ScheduleView: View {
         
         dateFormatter.dateFormat = "yyyy년 M월 d일 E요일" // Date 포맷 타입 지정
         let date_string = dateFormatter.string(from: YesterDayDate!) // 포맷된 형식 문자열로 반환
+        NowDateFormatter = YesterDayDate!
         
         date = date_string
     }
@@ -48,6 +117,7 @@ struct ScheduleView: View {
         
         dateFormatter.dateFormat = "yyyy년 M월 d일 E요일" // Date 포맷 타입 지정
         let date_string = dateFormatter.string(from: nowDate) // 포맷된 형식 문자열로 반환
+        NowDateFormatter = nowDate
         
         date = date_string
     }
@@ -63,6 +133,7 @@ struct ScheduleView: View {
         
         dateFormatter.dateFormat = "yyyy년 M월 d일 E요일" // Date 포맷 타입 지정
         let date_string = dateFormatter.string(from: TommorowDayDate!) // 포맷된 형식 문자열로 반환
+        NowDateFormatter = TommorowDayDate!
         
         date = date_string
     }
@@ -70,7 +141,7 @@ struct ScheduleView: View {
     func WeekDaydate() -> String{
         let custom = DateFormatter()
         custom.dateFormat = "E"
-        let nowdate: String = custom.string(from: .now)
+        let nowdate: String = custom.string(from: NowDateFormatter)
         switch nowdate {
         case "월": return "mon"
         case "화": return "tue"
@@ -165,6 +236,9 @@ struct ScheduleView: View {
                     HStack {
                         Button {
                             getNowDateTime24()
+                            shouldTopToastNowMessage = true
+                            PlusDate = 0
+                            MinusDate = 0
                         } label: {
                             Text("시간표")
                                 .foregroundColor(.white)
@@ -179,22 +253,26 @@ struct ScheduleView: View {
                     HStack {
                         Button {
                             getYesterDayDateTime24()
+                            getTimeSchedule(weekday: WeekDaydate())
+                            shouldTopToastLeftMessage = true
                         } label: {
-                            Text("<")
+                            Image(systemName: "arrowtriangle.left.fill")
                                 .foregroundColor(.white)
-                                .font(.custom("NotoSansKR-Regular", size: 15))
+                                .font(.custom("NotoSansKR-Regular", size: 18))
                         }
 
                         Text(date)
                             .foregroundColor(.white)
-                            .font(.custom("NotoSansKR-Regular", size: 15))
+                            .font(.custom("NotoSansKR-Regular", size: 18))
                         
                         Button {
                             getTommorowDateTime24()
+                            getTimeSchedule(weekday: WeekDaydate())
+                            shouldTopToastRightMessage = true
                         } label: {
-                            Text(">")
+                            Image(systemName: "arrowtriangle.right.fill")
                                 .foregroundColor(.white)
-                                .font(.custom("NotoSansKR-Regular", size: 15))
+                                .font(.custom("NotoSansKR-Regular", size: 18))
                         }
                     }
                     ScrollView() {
@@ -298,6 +376,16 @@ struct ScheduleView: View {
                 getTimeSchedule(weekday: WeekDaydate())
                 getNowDateTime24()
             }
+            .popup(isPresented: $shouldTopToastLeftMessage , type: .floater(verticalPadding: 20), position: .top, animation: .spring(), autohideIn: 2, dragToDismiss: true, closeOnTap: true, closeOnTapOutside: true, view: {
+                self.createTopToastLeftMessage()
+            })
+            .popup(isPresented: $shouldTopToastNowMessage , type: .floater(verticalPadding: 20), position: .top, animation: .spring(), autohideIn: 2, dragToDismiss: true, closeOnTap: true, closeOnTapOutside: true, view: {
+                self.createTopToastNowMessage()
+            })
+            .popup(isPresented: $shouldTopToastRightMessage , type: .floater(verticalPadding: 20), position: .top, animation: .spring(), autohideIn: 2, dragToDismiss: true, closeOnTap: true, closeOnTapOutside: true, view: {
+                self.createTopToastRightMessage()
+            })
+
         }
     }
 }

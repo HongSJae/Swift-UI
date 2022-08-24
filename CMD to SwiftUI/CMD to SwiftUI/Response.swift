@@ -38,10 +38,20 @@ struct SignUpInfo: Codable {
 
 //MARK: - 학생정보 (이름, 번호, 생일, 전공)
 
-struct Classinfo: Codable {
-    let username, number, birthday, field: String?
+struct ClassinfoElement: Codable {
+    let id: Int?
+    let username, number, userID: String?
+    let seatNumber: CLong?
+    let field, birthday: String?
+}
+
+typealias Classinfo = [ClassinfoElement]
+
+struct DetailInfo: Codable {
+    let username, number, birthday, field, userId: String?
     let seatNumber: CLong?
 }
+
 //MARK: - 내 정보
 
 struct Myinfo: Codable {

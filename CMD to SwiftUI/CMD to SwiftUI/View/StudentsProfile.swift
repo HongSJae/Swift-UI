@@ -6,38 +6,40 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct StudentsProfile: View {
-    
-    @State private var showModal = false //상태
+
+    @Binding var shouldPopupMessage: Bool
     
     var proxy: GeometryProxy
     var name: String
-    
+        
     var body: some View {
         ZStack{
-            Button(action: {
-                self.showModal = true
-            }){
-                Circle()
-                    .frame(width: proxy.size.width/3.5, height: proxy.size.width/3.5)
-                    .foregroundColor(.white)
-            }
-            .sheet(isPresented: self.$showModal) {
-                Detail_Info()
-            }
+            Circle()
+                .frame(width: proxy.size.width/4, height: proxy.size.width/4)
+                .foregroundColor(.white)
             
             Image("Logo-B")
                 .resizable()
-                .frame(width: proxy.size.width/4.5, height: proxy.size.width/5)
+                .frame(width: proxy.size.width/5, height: proxy.size.width/5)
                 .opacity(0.3)
             
             Text(name)
                 .font(.custom("NotoSansKR-Bold", size: 30))
                 .foregroundColor(.black)
+            Button(action: {
+                self.shouldPopupMessage = true
+            }){
+                Circle()
+                    .frame(width: proxy.size.width/4, height: proxy.size.width/4)
+                    .opacity(0)
+            }
         }
     }
 }
+
 //
 //struct StudentsProfile_Previews: PreviewProvider {
 //    static var previews: some View {

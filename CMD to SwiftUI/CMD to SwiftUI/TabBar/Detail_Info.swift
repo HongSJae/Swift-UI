@@ -16,19 +16,19 @@ struct bginfo {
 }
 
 struct Detail_Info: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var number:String = "0000"
+    var UserNumber: String
     
     @State var UserName = ""
-    @State var UserNumber = ""
     @State var UserBirth = ""
     @State var Userfield = ""
     
+    @Binding var shouldPopupMessage: Bool
+    
     //MARK: - 학생정보 불러오기 함수
-
-    func ClassAPI(Number: String) {
-        let url = "http://54.180.122.62:8080/user/info/" + Number
+    
+    func ClassAPI() {
+        let url = "http://54.180.122.62:8080/user/info/" + UserNumber
         AF.request(url,
                    method: .get,
                    encoding: URLEncoding.queryString,
@@ -37,13 +37,11 @@ struct Detail_Info: View {
         .validate(statusCode: 200..<300)
         .response { result in
             do{
-                let model = try JSONDecoder().decode(Classinfo.self, from: result.data!)
-                UserName = model.username ?? "이름"
-                UserName = model.username ?? "정보없음"
-                UserBirth = model.birthday ?? "정보없음"
-                Userfield = model.field ?? "정보없음"
-                UserNumber = model.number ?? "정보없음"
+                let model = try JSONDecoder().decode(DetailInfo.self, from: result.data!)
                 print("success")
+                UserName = model.username!
+                UserBirth = model.birthday ?? "정보 없음"
+                Userfield = model.field ?? "정보 없음"
                 
             } catch {
                 print(error)
@@ -60,26 +58,47 @@ struct Detail_Info: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
+                            shouldPopupMessage = false
                         }) {
-                            Image("x")
+                            Image(systemName: "xmark")
                                 .resizable()
+                                .foregroundColor(.white)
                                 .frame(width: 16, height: 16)
                                 .padding(20)
                         }
                     }
-                    Image("Profile")
-                        .resizable()
-                        .frame(width: proxy.size.width / 5, height: proxy.size.width / 5)
-                    Text("이름")
+                    ZStack{
+                        Circle()
+                            .frame(width: proxy.size.width/3.5, height: proxy.size.width/3.5)
+                            .foregroundColor(.white)
+                        
+                        Image("Logo-B")
+                            .resizable()
+                            .frame(width: proxy.size.width/4.5, height: proxy.size.width/5)
+                            .opacity(0.3)
+                        
+                        Text(UserName)
+                            .font(.custom("NotoSansKR-Bold", size: 30))
+                            .foregroundColor(.black)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("회원 정보")
+                            .font(.custom("NotoSansKR-Bold", size: 20))
+                            .foregroundColor(.white)
+                            .padding(.top, 20)
+                            .padding(.leading, 30)
+                    }
                 }
+            }
+            .onAppear {
+                ClassAPI()
             }
         }
     }
 }
 
-struct Detail_Info_Previews: PreviewProvider {
-    static var previews: some View {
-        Detail_Info(number: "1218")
-    }
-}
+//struct Detail_Info_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Detail_Info(number: "1218")
+//    }
+//}

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct info: View {
     
+    @Binding var shouldPopupMessage: Bool
+    
     var L: String
     var C: String
     var R: String
@@ -31,11 +33,11 @@ struct info: View {
             ZStack {
                 ColorManager.BackgroundColor.ignoresSafeArea()
                 ZStack {
-                    StudentsProfile(proxy: proxy, name: L)
+                    StudentsProfile(shouldPopupMessage: $shouldPopupMessage, proxy: proxy, name: L)
                         .offset(x: CalcCircleBgPosition(geometry: proxy, position: "left"), y: 0)
-                    StudentsProfile(proxy: proxy, name: C)
+                    StudentsProfile(shouldPopupMessage: $shouldPopupMessage, proxy: proxy, name: C)
                         .offset(x: CalcCircleBgPosition(geometry: proxy, position: "center"), y: 0)
-                    StudentsProfile(proxy: proxy, name: R)
+                    StudentsProfile(shouldPopupMessage: $shouldPopupMessage, proxy: proxy, name: R)
                         .offset(x: CalcCircleBgPosition(geometry: proxy, position: "right"), y: 0)
                 }
             }
@@ -43,8 +45,8 @@ struct info: View {
     }
 }
 
-struct info_Previews: PreviewProvider {
-    static var previews: some View {
-        info(L: "강용수", C: "강지인", R: "길근우")
-    }
-}
+//struct info_Previews: PreviewProvider {
+//    static var previews: some View {
+//        info(L: "강용수", C: "강지인", R: "길근우")
+//    }
+//}

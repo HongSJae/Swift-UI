@@ -7,19 +7,59 @@
 
 import SwiftUI
 import Alamofire
+import PopupView
+
+var ThisNumber: String = "0000"
 
 struct ClassinfoView: View {
     
-    func CalcCircleBgPosition(geometry: GeometryProxy, position: String) -> CGFloat {
-        switch position {
-        case "left":
-            return -(geometry.size.width/3)
-        case "right":
-            return 0
-        case "center":
-            return (geometry.size.width/3)
-        default:
-            return 0
+    @State var shouldPopupMessage: Bool = false
+    
+    @State var NameArr: [String] = []
+    @State var NumberArr: [String] = []
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+
+    
+    //MARK: - 학생정보 불러오기 함수
+    
+    func ClassAPI() {
+        let url = "http://54.180.122.62:8080/user/Info"
+        AF.request(url,
+                   method: .get,
+                   encoding: URLEncoding.queryString,
+                   headers: ["Authorization": Token!]
+        )
+        .validate(statusCode: 200..<300)
+        .response { result in
+            do{
+                let model = try JSONDecoder().decode(Classinfo.self, from: result.data!)
+                print("success")
+                for i in 0..<model.count {
+                    NameArr.append(model[i].username!)
+                    NumberArr.append(model[i].number!)
+                }
+                
+            } catch {
+                print(error)
+                print("정보가 없어요")
+            }
+        }
+    }
+    
+    func createPopupMessage(geometry: GeometryProxy) -> some View{
+        VStack(spacing: 10){
+            Detail_Info(UserNumber: NumberArr[0], shouldPopupMessage: $shouldPopupMessage)
+        }
+        .frame(width: geometry.size.width - 30, height: geometry.size.height - 50)
+        .cornerRadius(30)
+        .shadow(radius: 10)
+        .onAppear {
+            
         }
     }
     
@@ -39,48 +79,32 @@ struct ClassinfoView: View {
                     }
                     .padding(.bottom, 43)
                     ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(1..<7, content: { index in
-                            switch index {
-                            case 1:
-                                info(L: "강용수", C: "강지인", R: "길근우")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            case 2:
-                                info(L: "김민채", C: "김은오", R: "김정현")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            case 3:
-                                info(L: "김주원", C: "김현민", R: "마재영")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            case 4:
-                                info(L: "유나현", C: "유현담", R: "윤정민")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            case 5:
-                                info(L: "정승훈", C: "정지관", R: "조문성")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            case 6:
-                                info(L: "최하은", C: "한에슬", R: "홍승재")
-                                Spacer()
-                                    .frame(height: GeometryProxy.size.width / 3)
-                            default:
-                                info(L: "nil", C: "nil", R: "nil")
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<NameArr.count, id: \.self) { i in
+                                StudentsProfile(shouldPopupMessage: $shouldPopupMessage, proxy: GeometryProxy, name: NameArr[i])
+                                    .padding(.bottom, 20)
                             }
-                        })
+                        }
                     }
+                    .padding(.horizontal, 20)
                     Spacer()
                         .frame(height: 50)
                 }
             }
+            .popup(isPresented: $shouldPopupMessage , type: .default, position: .bottom, animation: .spring(), dragToDismiss: true, closeOnTap: false, closeOnTapOutside: true, view: {
+                self.createPopupMessage(geometry: GeometryProxy)
+            })
+            .onAppear {
+                ClassAPI()
+            }
         }
     }
 }
-                                
+
 
 struct ClassinfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassinfoView()
+        ClassinfoView(shouldPopupMessage: false)
     }
 }
+

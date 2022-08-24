@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct SignupView: View {
     @State var id: String = ""
@@ -16,7 +17,43 @@ struct SignupView: View {
     @State var openEye1 = false
     @State var openEye2 = false
 //    @State var isNavigationBarHidden: Bool = true
+    
+    @State var showingAlertSpace: Bool = false
+    @State var showingAlertError: Bool = false
+    @State var showingAlertSame: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
+    
+    func SignUp() {
+        
+        let url = "http://54.180.122.62:8080/signup/" + code
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
+        
+        // POST 로 보낼 정보
+        let params = ["userId": id, "password": pw] as Dictionary
+        print("\(id), \(pw) 를 POST")
+        // httpBody 에 parameters 추가
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { result in
+            do{
+                _ = try JSONDecoder().decode(SignUpInfo.self, from: result.data!)
+                print("회원가입 성공")
+            } catch {
+                print(error)
+                showingAlertError = true
+            }
+        }
+        
+    }
     
     var body: some View {
         GeometryReader { GeometryProxy in
@@ -156,11 +193,13 @@ struct SignupView: View {
                     Spacer()
                     Button {
                         if id.isEmpty == true || pw.isEmpty == true || pwc.isEmpty == true || code.isEmpty == true {
+                            showingAlertSpace = true
                         } else {
                             if pw != pwc {
+                                showingAlertSame = true
                             } else {
                                 print("SignUp!!")
-                                SignUp(id: id, pw: pw, code: code)
+                                SignUp()
                             }
                         }
                     } label: {
@@ -171,6 +210,22 @@ struct SignupView: View {
                             .foregroundColor(.black)
                             .background(.white)
                             .cornerRadius(10)
+                            .alert("공백이 있습니다.", isPresented: $showingAlertSpace) {
+                                Button("확인") {}
+                            } message: {
+                                Text("공백이 있는지 확인해주세요.")
+                            }
+                            .alert("회원가입 실패.", isPresented: $showingAlertError) {
+                                Button("확인") {}
+                            } message: {
+                                Text("가입코드를 확인해주세요..")
+                            }
+                            .alert("비밀번호가 일치하지 않습니다.", isPresented: $showingAlertSame) {
+                                Button("확인") {}
+                            } message: {
+                                Text("비밀번호와 비밀번호 확인이 일치하는지\n다시 한 번 확인해주세요,")
+                            }
+                            
                     }
                     Button(action:{ self.presentationMode.wrappedValue.dismiss() }){
                         HStack {

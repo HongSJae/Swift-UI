@@ -22,3 +22,5 @@ struct MyView_Previews: PreviewProvider {
         MyView()
     }
 }
+
+//로그아웃 만들 때 자동로그인 꺼야함.

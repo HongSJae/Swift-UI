@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9035D84028B4D90C00915166 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9035D83F28B4D90C00915166 /* SigninView.swift */; };
 		9035D84228B4E8EF00915166 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9035D84128B4E8EF00915166 /* KeyboardHandler.swift */; };
+		9035D84528B5393200915166 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 9035D84428B5393200915166 /* PopupView */; };
 		90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */; };
 		90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90417D0828A15EBB009A9C39 /* ContentView.swift */; };
 		90417D0B28A15EBE009A9C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90417D0A28A15EBE009A9C39 /* Assets.xcassets */; };
@@ -28,11 +29,8 @@
 		908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* ShowView.swift */; };
 		908BF9A328A435BD00DD982A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 908BF9A228A435BD00DD982A /* Alamofire */; };
 		908BF9A528A435EF00DD982A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF9A428A435EF00DD982A /* Response.swift */; };
-		90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5628A524BF00483808 /* SignupAPI.swift */; };
 		90A5BA5B28A62A2200483808 /* StudentsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5A28A62A2200483808 /* StudentsProfile.swift */; };
 		90A5BA5D28A62F0300483808 /* Detail_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5C28A62F0300483808 /* Detail_Info.swift */; };
-		90A5BA5F28A6362100483808 /* info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5E28A6362100483808 /* info.swift */; };
-		90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA6028A7F10A00483808 /* GetClassinfo.swift */; };
 		90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,11 +57,8 @@
 		90417D3B28A2A033009A9C39 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		908BF99D28A3A31B00DD982A /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
 		908BF9A428A435EF00DD982A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		90A5BA5628A524BF00483808 /* SignupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAPI.swift; sourceTree = "<group>"; };
 		90A5BA5A28A62A2200483808 /* StudentsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsProfile.swift; sourceTree = "<group>"; };
 		90A5BA5C28A62F0300483808 /* Detail_Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail_Info.swift; sourceTree = "<group>"; };
-		90A5BA5E28A6362100483808 /* info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = info.swift; sourceTree = "<group>"; };
-		90A5BA6028A7F10A00483808 /* GetClassinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClassinfo.swift; sourceTree = "<group>"; };
 		90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9035D84528B5393200915166 /* PopupView in Frameworks */,
 				908BF9A328A435BD00DD982A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +99,7 @@
 				90417D0628A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift */,
 				908BF9A428A435EF00DD982A /* Response.swift */,
 				9035D84128B4E8EF00915166 /* KeyboardHandler.swift */,
-				908BF9A828A4438700DD982A /* API */,
+				90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */,
 				90417D3428A29FEE009A9C39 /* View */,
 				90417D3128A29FC3009A9C39 /* TabBar */,
 				90417D0A28A15EBE009A9C39 /* Assets.xcassets */,
@@ -153,20 +149,9 @@
 				90417D2F28A293BD009A9C39 /* SignupView.swift */,
 				90417D3228A29FE8009A9C39 /* TabBarView.swift */,
 				908BF99D28A3A31B00DD982A /* ShowView.swift */,
-				90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */,
 				90A5BA5A28A62A2200483808 /* StudentsProfile.swift */,
-				90A5BA5E28A6362100483808 /* info.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		908BF9A828A4438700DD982A /* API */ = {
-			isa = PBXGroup;
-			children = (
-				90A5BA5628A524BF00483808 /* SignupAPI.swift */,
-				90A5BA6028A7F10A00483808 /* GetClassinfo.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +172,7 @@
 			name = "CMD to SwiftUI";
 			packageProductDependencies = (
 				908BF9A228A435BD00DD982A /* Alamofire */,
+				9035D84428B5393200915166 /* PopupView */,
 			);
 			productName = "CMD to SwiftUI";
 			productReference = 90417D0328A15EBB009A9C39 /* CMD to SwiftUI.app */;
@@ -218,6 +204,7 @@
 			mainGroup = 90417CFA28A15EBB009A9C39;
 			packageReferences = (
 				908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9035D84328B5393200915166 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 90417D0428A15EBB009A9C39 /* Products */;
 			projectDirPath = "";
@@ -252,8 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90417D3028A293BD009A9C39 /* SignupView.swift in Sources */,
-				90A5BA5F28A6362100483808 /* info.swift in Sources */,
-				90A5BA5728A524BF00483808 /* SignupAPI.swift in Sources */,
 				90A5BA5D28A62F0300483808 /* Detail_Info.swift in Sources */,
 				90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */,
 				908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */,
@@ -268,7 +253,6 @@
 				90417D3628A2A011009A9C39 /* ScheduleView.swift in Sources */,
 				90417D3C28A2A033009A9C39 /* MyView.swift in Sources */,
 				9035D84028B4D90C00915166 /* SigninView.swift in Sources */,
-				90A5BA6128A7F10A00483808 /* GetClassinfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +457,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9035D84328B5393200915166 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -484,6 +476,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9035D84428B5393200915166 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9035D84328B5393200915166 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
 		908BF9A228A435BD00DD982A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 908BF9A128A435BD00DD982A /* XCRemoteSwiftPackageReference "Alamofire" */;

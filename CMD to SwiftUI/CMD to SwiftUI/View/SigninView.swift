@@ -9,12 +9,34 @@ import Alamofire
 
 var Token: String? = "nil"
 
+struct CheckboxStyle: ToggleStyle {
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+
+        return HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundColor(.white)
+                .font(.custom("NotoSansKR-Regular", size: 18))
+                .padding(.leading, 50)
+                configuration.label
+            Spacer()
+        }
+        .onTapGesture { configuration.isOn.toggle() }
+
+    }
+}
+
 struct SigninView: View {
     
     @State var id: String = ""
     @State var pw: String = ""
     @State var tag:Int? = nil
     @State var openEye: Bool = false
+    @State var AutoLogin: Bool = false
+    @State var showingAlertSpace: Bool = false
+    @State var showingAlertError: Bool = false
     
     func Login() {
         let url = "http://54.180.122.62:8080/signin"
@@ -40,9 +62,14 @@ struct SigninView: View {
                 Token = model.accessToken
                 print("보낼 토큰은 : \(Token ?? "error")")
                 self.tag = 1
+                if AutoLogin {
+                    UserDefaults.standard.set(id, forKey: "ID")
+                    UserDefaults.standard.set(pw, forKey: "PW")
+                }
             } catch {
                 print(result)
                 print(error)
+                showingAlertError = true
             }
         }
         
@@ -128,9 +155,16 @@ struct SigninView: View {
                             .foregroundColor(.white)
                             .padding(.horizontal, 40)
                     }
+                    Toggle(isOn: $AutoLogin) {
+                        Text("자동 로그인")
+                            .font(.custom("NotoSansKR-Regular", size: 18))
+                            .foregroundColor(.white)
+                    }
+                    .toggleStyle(CheckboxStyle())
                     Spacer()
                     Button {
                         if id == "" || pw == "" {
+                            showingAlertSpace = true
                         } else {
                             Login()
                         }
@@ -142,6 +176,16 @@ struct SigninView: View {
                             .foregroundColor(.black)
                             .background(.white)
                             .cornerRadius(10)
+                            .alert("공백이 있습니다.", isPresented: $showingAlertSpace) {
+                                Button("확인") {}
+                            } message: {
+                                Text("공백이 있는지 확인해주세요.")
+                            }
+                            .alert("로그인 실패.", isPresented: $showingAlertError) {
+                                Button("확인") {}
+                            } message: {
+                                Text("아이디와 비밀번호를 확인해주세요.")
+                            }
                     }
                     NavigationLink(destination: SignupView()) {
                         HStack {
@@ -161,6 +205,13 @@ struct SigninView: View {
             }
                 .navigationBarHidden(true)
                 .onAppear (perform : UIApplication.shared.hideKeyboard)
+                .onAppear {
+                    if AutoLogin {
+                        id = UserDefaults.standard.string(forKey: "ID")!
+                        pw = UserDefaults.standard.string(forKey: "PW")!
+                        Login()
+                    }
+                }
         }
     }
 }
