@@ -110,6 +110,8 @@ struct ScheduleView: View {
     }
 
     func getNowDateTime24() {
+        PlusDate = 0
+        MinusDate = 0
         // [date 객체 사용해 현재 날짜 및 시간 24시간 형태 출력 실시]
         let nowDate = Date() // 현재의 Date 날짜 및 시간
         let dateFormatter = DateFormatter() // Date 포맷 객체 선언
@@ -159,7 +161,7 @@ struct ScheduleView: View {
     func getTimeSchedule(weekday: String) {
         switch weekday {
         case "mon", "tue", "wed", "thu", "fri":
-            let url = "http://54.180.122.62:8080/user/timetable/" + weekday
+            let url = "http://10.156.147.133:3000/user/timetable/" + weekday
             AF.request(url,
                        method: .get,
                        encoding: URLEncoding.queryString,
@@ -236,9 +238,8 @@ struct ScheduleView: View {
                     HStack {
                         Button {
                             getNowDateTime24()
+                            getTimeSchedule(weekday: WeekDaydate())
                             shouldTopToastNowMessage = true
-                            PlusDate = 0
-                            MinusDate = 0
                         } label: {
                             Text("시간표")
                                 .foregroundColor(.white)

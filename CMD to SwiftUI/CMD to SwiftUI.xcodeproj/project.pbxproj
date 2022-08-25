@@ -29,8 +29,9 @@
 		908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF99D28A3A31B00DD982A /* ShowView.swift */; };
 		908BF9A328A435BD00DD982A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 908BF9A228A435BD00DD982A /* Alamofire */; };
 		908BF9A528A435EF00DD982A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BF9A428A435EF00DD982A /* Response.swift */; };
-		90A5BA5B28A62A2200483808 /* StudentsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5A28A62A2200483808 /* StudentsProfile.swift */; };
 		90A5BA5D28A62F0300483808 /* Detail_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5BA5C28A62F0300483808 /* Detail_Info.swift */; };
+		90C85DB128B7B9CC00CF86ED /* TeacherNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C85DB028B7B9CC00CF86ED /* TeacherNotice.swift */; };
+		90C85DB328B7B9E400CF86ED /* StudentNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C85DB228B7B9E400CF86ED /* StudentNotice.swift */; };
 		90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +58,9 @@
 		90417D3B28A2A033009A9C39 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		908BF99D28A3A31B00DD982A /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
 		908BF9A428A435EF00DD982A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		90A5BA5A28A62A2200483808 /* StudentsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsProfile.swift; sourceTree = "<group>"; };
 		90A5BA5C28A62F0300483808 /* Detail_Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail_Info.swift; sourceTree = "<group>"; };
+		90C85DB028B7B9CC00CF86ED /* TeacherNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherNotice.swift; sourceTree = "<group>"; };
+		90C85DB228B7B9E400CF86ED /* StudentNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNotice.swift; sourceTree = "<group>"; };
 		90E5F00128A4DDA7004BE3AB /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,8 @@
 				90417D3728A2A01C009A9C39 /* ClassinfoView.swift */,
 				90A5BA5C28A62F0300483808 /* Detail_Info.swift */,
 				90417D3928A2A02D009A9C39 /* NoticeboardView.swift */,
+				90C85DB028B7B9CC00CF86ED /* TeacherNotice.swift */,
+				90C85DB228B7B9E400CF86ED /* StudentNotice.swift */,
 				90417D3B28A2A033009A9C39 /* MyView.swift */,
 			);
 			path = TabBar;
@@ -149,7 +153,6 @@
 				90417D2F28A293BD009A9C39 /* SignupView.swift */,
 				90417D3228A29FE8009A9C39 /* TabBarView.swift */,
 				908BF99D28A3A31B00DD982A /* ShowView.swift */,
-				90A5BA5A28A62A2200483808 /* StudentsProfile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,14 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				90417D3028A293BD009A9C39 /* SignupView.swift in Sources */,
+				90C85DB128B7B9CC00CF86ED /* TeacherNotice.swift in Sources */,
 				90A5BA5D28A62F0300483808 /* Detail_Info.swift in Sources */,
 				90417D0928A15EBB009A9C39 /* ContentView.swift in Sources */,
 				908BF99E28A3A31B00DD982A /* ShowView.swift in Sources */,
 				908BF9A528A435EF00DD982A /* Response.swift in Sources */,
 				90417D0728A15EBB009A9C39 /* CMD_to_SwiftUIApp.swift in Sources */,
+				90C85DB328B7B9E400CF86ED /* StudentNotice.swift in Sources */,
 				90417D3828A2A01C009A9C39 /* ClassinfoView.swift in Sources */,
 				90E5F00228A4DDA7004BE3AB /* HideKeyboard.swift in Sources */,
-				90A5BA5B28A62A2200483808 /* StudentsProfile.swift in Sources */,
 				90417D3A28A2A02D009A9C39 /* NoticeboardView.swift in Sources */,
 				90417D3328A29FE8009A9C39 /* TabBarView.swift in Sources */,
 				9035D84228B4E8EF00915166 /* KeyboardHandler.swift in Sources */,

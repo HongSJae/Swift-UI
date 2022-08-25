@@ -26,7 +26,7 @@ struct SignupView: View {
     
     func SignUp() {
         
-        let url = "http://54.180.122.62:8080/signup/" + code
+        let url = "http://10.156.147.133:3000/signup/" + code
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
@@ -47,6 +47,7 @@ struct SignupView: View {
             do{
                 _ = try JSONDecoder().decode(SignUpInfo.self, from: result.data!)
                 print("회원가입 성공")
+                self.presentationMode.wrappedValue.dismiss()
             } catch {
                 print(error)
                 showingAlertError = true

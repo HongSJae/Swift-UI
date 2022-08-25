@@ -15,40 +15,25 @@ struct bginfo {
     //... add the rest of your colors here
 }
 
+//MARK: - 학생정보 불러오기 함수
+
 struct Detail_Info: View {
     
-    var UserNumber: String
+    @Binding var UserNumber: String
     
-    @State var UserName = ""
-    @State var UserBirth = ""
-    @State var Userfield = ""
+    var UserName: String
+    var UserBirth: String
+    var Userfield: String
+    var UserSeat: CLong?
     
     @Binding var shouldPopupMessage: Bool
     
-    //MARK: - 학생정보 불러오기 함수
-    
-    func ClassAPI() {
-        let url = "http://54.180.122.62:8080/user/info/" + UserNumber
-        AF.request(url,
-                   method: .get,
-                   encoding: URLEncoding.queryString,
-                   headers: ["Authorization": Token!]
-        )
-        .validate(statusCode: 200..<300)
-        .response { result in
-            do{
-                let model = try JSONDecoder().decode(DetailInfo.self, from: result.data!)
-                print("success")
-                UserName = model.username!
-                UserBirth = model.birthday ?? "정보 없음"
-                Userfield = model.field ?? "정보 없음"
-                
-            } catch {
-                print(error)
-                print("정보가 없어요")
-            }
-        }
-    }
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         GeometryReader { proxy in
@@ -81,17 +66,93 @@ struct Detail_Info: View {
                             .font(.custom("NotoSansKR-Bold", size: 30))
                             .foregroundColor(.black)
                     }
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text("회원 정보")
                             .font(.custom("NotoSansKR-Bold", size: 20))
                             .foregroundColor(.white)
-                            .padding(.top, 20)
+                            .padding(.top, 40)
                             .padding(.leading, 30)
+                        Spacer()
                     }
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("이름")
+                                .font(.custom("NotoSansKR-Regular", size: 13))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text("학번")
+                                .font(.custom("NotoSansKR-Regular", size: 13))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text("생년월일")
+                                .font(.custom("NotoSansKR-Regular", size: 13))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text("전공")
+                                .font(.custom("NotoSansKR-Regular", size: 13))
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading, 30)
+                        .padding(.top, 21)
+                        Spacer()
+                            .frame(width: 20)
+                        VStack(alignment: .leading) {
+                            Text(UserName)
+                                .font(.custom("NotoSansKR-Bold", size: 14))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text(UserNumber)
+                                .font(.custom("NotoSansKR-Bold", size: 14))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text(UserBirth)
+                                .font(.custom("NotoSansKR-Bold", size: 14))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 15)
+                            Text(Userfield)
+                                .font(.custom("NotoSansKR-Bold", size: 14))
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading, 30)
+                        .padding(.top, 21)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("자리 배치")
+                            .font(.custom("NotoSansKR-Bold", size: 20))
+                            .foregroundColor(.white)
+                            .padding(.top, 40)
+                            .padding(.leading, 30)
+                        Spacer()
+                    }
+                    ZStack(alignment: .center) {
+                        Rectangle()
+                            .frame(width: proxy.size.width - 60, height: (proxy.size.width - 60) / 1.3)
+                            .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+                            .cornerRadius(10)
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<18, id: \.self) { i in
+                                if i + 1 == UserSeat {
+                                    Rectangle()
+                                        .frame(width: proxy.size.width / 9, height: proxy.size.width / 14)
+                                        .foregroundColor(Color(red: 0.692, green: 0.692, blue: 0.692, opacity: 1))
+                                        .cornerRadius(2)
+                                } else {
+                                    Rectangle()
+                                        .frame(width: proxy.size.width / 9, height: proxy.size.width / 14)
+                                        .foregroundColor(Color(red: 0.692, green: 0.692, blue: 0.692, opacity: 0.1))
+                                        .cornerRadius(2)
+                                        .padding(.vertical, 5)
+                                }
+                            }
+                        }
+                        .padding(40)
+                    }
+                    Spacer()
                 }
             }
             .onAppear {
-                ClassAPI()
+//                DetailAPI(num: UserNumber)
             }
         }
     }
@@ -99,6 +160,6 @@ struct Detail_Info: View {
 
 //struct Detail_Info_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Detail_Info(number: "1218")
+//        Detail_Info(UserNumber: "1218")
 //    }
 //}

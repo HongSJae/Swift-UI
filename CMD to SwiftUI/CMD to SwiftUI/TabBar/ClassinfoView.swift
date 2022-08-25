@@ -18,17 +18,47 @@ struct ClassinfoView: View {
     @State var NameArr: [String] = []
     @State var NumberArr: [String] = []
     
+    @State var SendingNumber: String = ""
+    @State var SendingName: String = ""
+    @State var SendingField: String = ""
+    @State var SendingBirth: String = ""
+    @State var SendingSeat: CLong? = nil
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-
+    
+    func DetailAPI(num: String) {
+        print("usernumber: ", num)
+        let url = "http://54.180.122.62:8080/user/info/" + num
+        AF.request(url,
+                   method: .get,
+                   encoding: URLEncoding.queryString,
+                   headers: ["Authorization": Token!]
+        )
+        .validate(statusCode: 200..<300)
+        .response { result in
+            do{
+                let model = try JSONDecoder().decode(DetailInfo.self, from: result.data!)
+                print("success")
+                SendingName = model.username ?? "이름"
+                SendingField = model.birthday ?? "정보 없음"
+                SendingBirth = model.field ?? "정보 없음"
+                SendingSeat = model.seatNumber
+                
+            } catch {
+                print(error)
+                print("정보가 없어요")
+            }
+        }
+    }
     
     //MARK: - 학생정보 불러오기 함수
     
     func ClassAPI() {
-        let url = "http://54.180.122.62:8080/user/Info"
+        let url = "http://10.156.147.133:3000/user/Info"
         AF.request(url,
                    method: .get,
                    encoding: URLEncoding.queryString,
@@ -53,7 +83,7 @@ struct ClassinfoView: View {
     
     func createPopupMessage(geometry: GeometryProxy) -> some View{
         VStack(spacing: 10){
-            Detail_Info(UserNumber: NumberArr[0], shouldPopupMessage: $shouldPopupMessage)
+            Detail_Info(UserNumber: $SendingNumber, UserName: SendingName, UserBirth: SendingBirth, Userfield: SendingField, UserSeat: SendingSeat, shouldPopupMessage: $shouldPopupMessage)
         }
         .frame(width: geometry.size.width - 30, height: geometry.size.height - 50)
         .cornerRadius(30)
@@ -81,8 +111,31 @@ struct ClassinfoView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns) {
                             ForEach(0..<NameArr.count, id: \.self) { i in
-                                StudentsProfile(shouldPopupMessage: $shouldPopupMessage, proxy: GeometryProxy, name: NameArr[i])
-                                    .padding(.bottom, 20)
+                                ZStack{
+                                    Circle()
+                                        .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
+                                        .foregroundColor(.white)
+                                    
+                                    Image("Logo-B")
+                                        .resizable()
+                                        .frame(width: GeometryProxy.size.width/5, height: GeometryProxy.size.width/5)
+                                        .opacity(0.3)
+                                    
+                                    Text(NameArr[i])
+                                        .font(.custom("NotoSansKR-Bold", size: 30))
+                                        .foregroundColor(.black)
+                                    Button(action: {
+                                        SendingNumber = NumberArr[i]
+                                        self.shouldPopupMessage = true
+                                        print("SendingNumber:", SendingNumber)
+                                        DetailAPI(num: SendingNumber)
+                                    }){
+                                        Circle()
+                                            .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
+                                            .opacity(0)
+                                    }
+                                }
+                                .padding(.bottom, 20)
                             }
                         }
                     }
