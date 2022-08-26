@@ -18,7 +18,7 @@ struct StudentNotice: View {
         
     func getStudentNotice() {
         print("불러온 토큰은 : \(Token!)")
-        let url = "http://10.156.147.133:3000/user/post"
+        let url = BaseURL + "/user/post"
         AF.request(url,
                    method: .get,
                    encoding: URLEncoding.queryString,
@@ -59,6 +59,7 @@ struct StudentNotice: View {
                             Text(notice[i].Header)
                                 .foregroundColor(.black)
                                 .font(.custom("NotoSansKR-Bold", size: 20))
+                                .padding(.top, 10)
                             Text(notice[i].Title)
                                 .foregroundColor(.black)
                                 .font(.custom("NotoSansKR-Regular", size: 20))

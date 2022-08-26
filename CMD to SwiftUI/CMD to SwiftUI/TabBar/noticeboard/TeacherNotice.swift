@@ -16,7 +16,7 @@ struct TeacherNotice: View {
     
     func getTeacherNotice() {
         print("불러온 토큰은 : \(Token!)")
-        let url = "http://10.156.147.133:3000/user/noticeBoard"
+        let url = BaseURL + "/user/noticeBoard"
         AF.request(url,
                    method: .get,
                    encoding: URLEncoding.queryString,
@@ -58,6 +58,10 @@ struct TeacherNotice: View {
                             Text(notice[i].Header)
                                 .foregroundColor(.black)
                                 .font(.custom("NotoSansKR-Bold", size: 20))
+                                .padding(.top, 10)
+//                            Rectangle()
+//                                .frame(width: GeometryProxy.size.width - 100, height: 2)
+//                                .foregroundColor(.secondary)
                             Text(notice[i].Title)
                                 .foregroundColor(.black)
                                 .font(.custom("NotoSansKR-Regular", size: 20))

@@ -39,7 +39,7 @@ struct SigninView: View {
     @State var showingAlertError: Bool = false
     
     func Login() {
-        let url = "http://10.156.147.133:3000/signin"
+        let url = BaseURL + "/signin"
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
@@ -71,8 +71,7 @@ struct SigninView: View {
                 print(error)
                 showingAlertError = true
             }
-        }
-        
+        }   
     }
     
     var body: some View {

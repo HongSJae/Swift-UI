@@ -19,3 +19,10 @@ struct StudentsProfile: View {
         
     }
 }
+
+//
+//struct StudentsProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudentsProfile(proxy: GeometryProxy.frame(GeometryProxy))
+//    }
+//}

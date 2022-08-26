@@ -14,6 +14,8 @@ struct ColorManager {
     //... add the rest of your colors here
 }
 
+let BaseURL = "http://10.156.147.133:3000"
+
 struct ContentView: View {
  
     var body: some View {

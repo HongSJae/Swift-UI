@@ -67,4 +67,8 @@ struct NoticeboardElement: Codable {
 
 typealias Noticeboard = [NoticeboardElement]
 
+// MARK: - PostNotice
+struct PostNotice: Codable {
+    let title, contents: String
+}
 

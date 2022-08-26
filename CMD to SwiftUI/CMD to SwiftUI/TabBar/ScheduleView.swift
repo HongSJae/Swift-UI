@@ -161,7 +161,7 @@ struct ScheduleView: View {
     func getTimeSchedule(weekday: String) {
         switch weekday {
         case "mon", "tue", "wed", "thu", "fri":
-            let url = "http://10.156.147.133:3000/user/timetable/" + weekday
+            let url = BaseURL + "/user/timetable/" + weekday
             AF.request(url,
                        method: .get,
                        encoding: URLEncoding.queryString,
@@ -208,25 +208,25 @@ struct ScheduleView: View {
                 }
             }
         default:
-            Class1 = "시간표가 없어요!"
+            Class1 = "시간표가 없음"
             
-            Class2 = "시간표가 없어요!"
+            Class2 = "시간표가 없음"
             
-            Class3 = "시간표가 없어요!"
+            Class3 = "시간표가 없음"
             
-            Class4 = "시간표가 없어요!"
+            Class4 = "시간표가 없음"
             
-            Class5 = "시간표가 없어요!"
+            Class5 = "시간표가 없음"
             
-            Class6 = "시간표가 없어요!"
+            Class6 = "시간표가 없음"
             
-            Class7 = "시간표가 없어요!"
+            Class7 = "시간표가 없음"
             
-            Class8 = "시간표가 없어요!"
+            Class8 = "시간표가 없음"
             
-            Class9 = "시간표가 없어요!"
+            Class9 = "시간표가 없음"
             
-            Class10 = "시간표가 없어요!"
+            Class10 = "시간표가 없음"
         }
     }
     
@@ -277,97 +277,208 @@ struct ScheduleView: View {
                         }
                     }
                     ScrollView() {
-                        Text(Class1)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-//                            .shadow(color: .black, radius: 5, x: 0, y: 5)
-                        Text(Class2)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class3)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class4)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class5)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class6)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class7)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class8)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class9)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
-                        Text(Class10)
-                            .font(.custom("NotoSansKR-Regular", size: 25))
-                            .foregroundColor(.black)
-                            .frame(width: GeometryProxy.size.width - 100,
-                                   height: GeometryProxy.size.height / 11)
-                            .background(Color("ScheduleGrayColor"))
-                            .cornerRadius(10)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 50)
+                        Group {
+                            ZStack(alignment: .center) {
+                                Text(Class1)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("1교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class2)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("2교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class3)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("3교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class4)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("4교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            Text("점심시간")
+                                .font(.custom("NotoSansKR-Regular", size: 25))
+                                .foregroundColor(.black)
+                                .frame(width: GeometryProxy.size.width - 100,
+                                       height: GeometryProxy.size.height / 11)
+                                .background(Color("ScheduleGrayColor"))
+                                .cornerRadius(10)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 50)
+                        }
+                        Group {
+                            ZStack(alignment: .center) {
+                                Text(Class5)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("5교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class6)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("6교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class7)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("7교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class8)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("8교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            Text("저녁시간")
+                                .font(.custom("NotoSansKR-Regular", size: 25))
+                                .foregroundColor(.black)
+                                .frame(width: GeometryProxy.size.width - 100,
+                                       height: GeometryProxy.size.height / 11)
+                                .background(Color("ScheduleGrayColor"))
+                                .cornerRadius(10)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 50)
+                            ZStack(alignment: .center) {
+                                Text(Class9)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("9교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                            ZStack(alignment: .center) {
+                                Text(Class10)
+                                    .font(.custom("NotoSansKR-Regular", size: 25))
+                                    .foregroundColor(.black)
+                                    .frame(width: GeometryProxy.size.width - 100,
+                                           height: GeometryProxy.size.height / 11)
+                                    .background(Color("ScheduleGrayColor"))
+                                    .cornerRadius(10)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 50)
+                                HStack {
+                                    Text("10교시")
+                                        .font(.custom("NotoSansKR-Regular", size: 15))
+                                        .foregroundColor(.black)
+                                        .padding(.leading, GeometryProxy.size.width / 5)
+                                    Spacer()
+                                }
+                            }
+                        }
                     }
                     Spacer()
                         .frame(height: 50)

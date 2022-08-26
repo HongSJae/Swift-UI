@@ -30,9 +30,9 @@ struct ClassinfoView: View {
         GridItem(.flexible())
     ]
     
-    func DetailAPI(num: String) {
-        print("usernumber: ", num)
-        let url = "http://54.180.122.62:8080/user/info/" + num
+    func DetailAPI() {
+        print("usernumber: ", SendingNumber)
+        let url = BaseURL + "/user/info/" + SendingNumber
         AF.request(url,
                    method: .get,
                    encoding: URLEncoding.queryString,
@@ -83,11 +83,12 @@ struct ClassinfoView: View {
     
     func createPopupMessage(geometry: GeometryProxy) -> some View{
         VStack(spacing: 10){
-            Detail_Info(UserNumber: $SendingNumber, UserName: SendingName, UserBirth: SendingBirth, Userfield: SendingField, UserSeat: SendingSeat, shouldPopupMessage: $shouldPopupMessage)
+            Detail_Info(UserNumber: $SendingNumber, UserName: $SendingName, UserBirth: $SendingBirth, Userfield: $SendingField, UserSeat: $SendingSeat, shouldPopupMessage: $shouldPopupMessage)
         }
-        .frame(width: geometry.size.width - 30, height: geometry.size.height - 50)
+        .frame(width: geometry.size.width - 30, height: geometry.size.height - 100)
         .cornerRadius(30)
         .shadow(radius: 10)
+        .padding(.bottom, 20)
         .onAppear {
             
         }
@@ -118,7 +119,7 @@ struct ClassinfoView: View {
                                     
                                     Image("Logo-B")
                                         .resizable()
-                                        .frame(width: GeometryProxy.size.width/5, height: GeometryProxy.size.width/5)
+                                        .frame(width: GeometryProxy.size.width/4.5, height: GeometryProxy.size.width/5)
                                         .opacity(0.3)
                                     
                                     Text(NameArr[i])
@@ -126,9 +127,8 @@ struct ClassinfoView: View {
                                         .foregroundColor(.black)
                                     Button(action: {
                                         SendingNumber = NumberArr[i]
+                                        DetailAPI()
                                         self.shouldPopupMessage = true
-                                        print("SendingNumber:", SendingNumber)
-                                        DetailAPI(num: SendingNumber)
                                     }){
                                         Circle()
                                             .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)

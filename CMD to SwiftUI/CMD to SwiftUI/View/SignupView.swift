@@ -26,7 +26,7 @@ struct SignupView: View {
     
     func SignUp() {
         
-        let url = "http://10.156.147.133:3000/signup/" + code
+        let url = BaseURL + "/signup/" + code
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
