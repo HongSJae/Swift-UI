@@ -85,7 +85,7 @@ struct ClassinfoView: View {
         VStack(spacing: 10){
             Detail_Info(UserNumber: $SendingNumber, UserName: $SendingName, UserBirth: $SendingBirth, Userfield: $SendingField, UserSeat: $SendingSeat, shouldPopupMessage: $shouldPopupMessage)
         }
-        .frame(width: geometry.size.width - 30, height: geometry.size.height - 100)
+        .frame(width: geometry.size.width - 30, height: geometry.size.height - 150)
         .cornerRadius(30)
         .shadow(radius: 10)
         .padding(.bottom, 20)
@@ -104,11 +104,10 @@ struct ClassinfoView: View {
                             .foregroundColor(.white)
                             .font(.custom("NotoSansKR-Bold", size: 50))
                             .padding(.top, GeometryProxy.size.width/5)
-                            .padding(.bottom, GeometryProxy.size.width/9 - 10)
+                            
                             .padding(.leading, 30)
                         Spacer()
                     }
-                    .padding(.bottom, 43)
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns) {
                             ForEach(0..<NameArr.count, id: \.self) { i in

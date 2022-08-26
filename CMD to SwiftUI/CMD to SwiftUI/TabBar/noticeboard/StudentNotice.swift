@@ -11,7 +11,6 @@ import Alamofire
 struct StudentNotice: View {
     
     @State var notice: [Notice]
-    var columns: [GridItem]
     var GeometryProxy: GeometryProxy
     
     //MARK: - 공지사항 받는 함수
@@ -30,10 +29,12 @@ struct StudentNotice: View {
                 let model = try JSONDecoder().decode(Noticeboard.self, from: result.data!)
                 
                 print("success")
+                
                 if model.count == 0 {
                     self.notice.append(Notice(Header: "게시물이 없어요",
                                           Title: "추가된 게시물이 없습니다."))
                 } else {
+                    notice.removeAll()
                     for i in 0..<model.count {
                         self.notice.append(Notice(Header: model[i].title, Title: model[i].contents))
                         print(notice)
@@ -47,8 +48,11 @@ struct StudentNotice: View {
     }
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: columns) {
+        RefreshableScrollView(onRefresh: { done in
+            getStudentNotice()
+            done()
+        }) {
+            VStack {
                 ForEach(0..<notice.count, id: \.self) { i in
                     ZStack(alignment: .top){
                         Rectangle()

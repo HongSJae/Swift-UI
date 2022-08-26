@@ -117,8 +117,6 @@ struct SigninView: View {
                                 Text("비밀번호")
                                     .foregroundColor(.gray.opacity(0.4))
                                     .font(.custom("NotoSansKR-Regular", size: 18))
-                            } else {
-                                
                             }
                             if !openEye {
                                 SecureField("", text: $pw)
@@ -160,6 +158,7 @@ struct SigninView: View {
                             .foregroundColor(.white)
                     }
                     .toggleStyle(CheckboxStyle())
+                    .padding(.top, 20)
                     Spacer()
                     Button {
                         if id == "" || pw == "" {
@@ -180,7 +179,7 @@ struct SigninView: View {
                             } message: {
                                 Text("공백이 있는지 확인해주세요.")
                             }
-                            .alert("로그인 실패.", isPresented: $showingAlertError) {
+                            .alert("로그인 실패", isPresented: $showingAlertError) {
                                 Button("확인") {}
                             } message: {
                                 Text("아이디와 비밀번호를 확인해주세요.")

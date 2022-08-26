@@ -9,10 +9,21 @@ import SwiftUI
 
 struct MyView: View {
     var body: some View {
-        ZStack {
-            ColorManager.BackgroundColor.ignoresSafeArea()
-            Text("마이페이지")
-                .foregroundColor(.white)
+        GeometryReader { proxy in
+            ZStack(alignment: .top) {
+                ColorManager.BackgroundColor.ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Text("내 정보")
+                            .foregroundColor(.white)
+                            .font(.custom("NotoSansKR-Bold", size: 60))
+                            .padding(.top, proxy.size.width/7)
+                            .padding(.bottom, proxy.size.width/10 - 10)
+                            .padding(.leading, 30)
+                        Spacer()
+                    }
+                }
+            }
         }
     }
 }
@@ -20,6 +31,7 @@ struct MyView: View {
 struct MyView_Previews: PreviewProvider {
     static var previews: some View {
         MyView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
 

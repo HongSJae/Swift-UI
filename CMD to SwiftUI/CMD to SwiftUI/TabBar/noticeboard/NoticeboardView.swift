@@ -7,8 +7,9 @@
 
 import SwiftUI
 import Alamofire
+import PopupView
 
-struct Notice {
+struct Notice: Hashable {
     var Header: String
     var Title: String
 }
@@ -18,9 +19,21 @@ struct NoticeboardView: View {
     @State var notice: [Notice] = []
     @State var selectionValue: Int? = nil
     
+    @State var shouldPopupMessage = false
+    
     let columns = [
         GridItem(.flexible())
     ]
+    
+    func createPopupMessage(geometry: GeometryProxy) -> some View{
+        VStack(spacing: 10){
+            Post_Notice(shouldPopupMessage: $shouldPopupMessage)
+        }
+        .frame(width: geometry.size.width - 30, height: geometry.size.height - 150)
+        .cornerRadius(30)
+        .shadow(radius: 20)
+        .padding(50)
+    }
     
     var body: some View {
         GeometryReader { GeometryProxy in
@@ -54,15 +67,15 @@ struct NoticeboardView: View {
                     .padding(.horizontal, 50)
                     
                     if nil ==  selectionValue {
-                        TeacherNotice(notice: notice, columns: columns, GeometryProxy: GeometryProxy)
+                        TeacherNotice(notice: notice,  GeometryProxy: GeometryProxy)
                             .transition(.move(edge: .leading))
                     }
                     if selectionValue == 0 {
-                        TeacherNotice(notice: notice, columns: columns, GeometryProxy: GeometryProxy)
+                        TeacherNotice(notice: notice,  GeometryProxy: GeometryProxy)
                             .transition(.move(edge: .leading))
                     }
                     if selectionValue == 1 {
-                        StudentNotice(notice: notice, columns: columns, GeometryProxy: GeometryProxy)
+                        StudentNotice(notice: notice,  GeometryProxy: GeometryProxy)
                             .transition(.move(edge: .trailing))
                     }
                 }
@@ -87,14 +100,17 @@ struct NoticeboardView: View {
                                     .padding(.trailing, 30)
                                     .padding(.bottom, 30)
                                     .onTapGesture {
-                                        
+                                        shouldPopupMessage = true
                                     }
                             }
                         }
                     }
                 }
             }
-            .padding(.bottom, 30)
+            .padding(.bottom, 50)
+            .popup(isPresented: $shouldPopupMessage , type: .default, position: .bottom, animation: .spring(), dragToDismiss: true, closeOnTap: false, closeOnTapOutside: true, view: {
+                self.createPopupMessage(geometry: GeometryProxy)
+            })
         }
     }
 }
